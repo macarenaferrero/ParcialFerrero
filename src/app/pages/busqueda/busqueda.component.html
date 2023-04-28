@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tabla Peliculas</title>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Busqueda <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Alta pelicula</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" tabindex="-1">Alta actor</a>
+      </li>      
+    </ul>
+  </div>
+</nav>
+
+<main role="main">
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Peliculas</h1>
+      <p>Selecciona la pelicula que quieres ver, editar o borrar</p>
+
+      <app-tabla-pelicula [listadoPeliculas]="peliculas" (peliculaSeleccionada)="mostrarPelicula($event)"></app-tabla-pelicula>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+       <app-detalle-pelicula  *ngIf="hayPeliculaAmostrar" [peliculaMostrar]="peliculaMostrar"></app-detalle-pelicula>
+      </div>
+      <div class="col-md-6">
+        <app-modificar-pelicula (onPeliculaAModificar)="modificarPelicula($event)" *ngIf="hayPeliculaAmostrar" [peliculaMostrar]="peliculaMostrar"></app-modificar-pelicula>
+      </div>
+      <div class="col-md-2">
+        <app-borrar-pelicula (onPeliculaABorrar)="borrarPelicula($event)" [peliculaMostrar]="peliculaMostrar" *ngIf="hayPeliculaAmostrar"></app-borrar-pelicula>       
+      </div>
+    </div>
+    <hr>
+  </div> <!-- /container -->
+
+</main>
+
+<footer class="container">
+  <p>&copy; Ferrero Macarena 2023</p>
+</footer>
+</body>
+</html>

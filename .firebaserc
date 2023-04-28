@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "primerparcialferrero": {
+      "hosting": {
+        "ParcialFerrero": [
+          "primerparcialferrero"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "primerparcialferrero"
+  }
+}
