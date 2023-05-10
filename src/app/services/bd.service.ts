@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
-import { collectionData, doc } from '@angular/fire/firestore';
-import { CollectionReference, DocumentData, Firestore, addDoc, collection, getDocs, updateDoc } from 'firebase/firestore';
 import { Pelicula } from '../class/pelicula';
+import { Firestore, collection, doc, DocumentData, CollectionReference } from '@angular/fire/firestore';
+import { setDoc } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BdService {
   listado: any[] = [];
-  //coleccionPeliculas: CollectionReference<DocumentData> = collection(this.firestore, 'peliculas');
+  coleccionPeliculas: CollectionReference<DocumentData> = collection(this.firestore, 'peliculas');
 
-  constructor(private firestore: Firestore) {
-    
-   }
+  constructor(private firestore: Firestore) {}
 
-  //  guardar(){
-  //   const documentoNuevo = doc(this.coleccionPeliculas)
-  //   const nuevoId = documentoNuevo.id;
+   guardarPelicula(pelicula: Pelicula){
 
-  //   addDoc(coleccion, {nombre:'Esperando la carroza', tipo:'Comedia', fechaEstreno: '12/11/1992', cantidadPublico: 1200, fotoPelicula:'/ejemplo'})
-  //  }
+  const documento = doc(this.coleccionPeliculas);
+  setDoc(documento,{
+    id: documento.id,
+  });
+}
 
   //  traer(){
   //   const coleccion = collection(this.firestore, 'peliculas');
@@ -31,7 +30,7 @@ export class BdService {
   //   this.listado = informacion;
   //   })
 
-    
+
   //   getDocs(coleccion).then((respuesta)=>{
   //     console.log(respuesta);
   //   });

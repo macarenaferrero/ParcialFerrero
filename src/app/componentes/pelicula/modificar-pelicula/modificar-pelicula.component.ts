@@ -21,7 +21,7 @@ export class ModificarPeliculaComponent implements OnInit {
     this.onPeliculaAModificar.emit(this.peliculaMostrar);
   }
 
- 
+
 
   ngOnInit(): void {
   }

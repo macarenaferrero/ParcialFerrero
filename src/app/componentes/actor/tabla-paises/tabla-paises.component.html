@@ -1,0 +1,9 @@
+<div *ngFor="let pais of paises">
+  <div class="mb-3 justify-content-between">
+    <div class="row">
+      <button class="btn btn-primary" (click)="emitirPais(pais.nombre)">
+    <h5>{{ pais.nombre }}</h5>
+    <img [src]="pais.bandera" style="width:10%; position:relative;"/></button>
+  </div>
+  </div>
+</div>

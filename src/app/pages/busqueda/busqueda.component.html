@@ -7,28 +7,9 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Busqueda <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Alta pelicula</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" tabindex="-1">Alta actor</a>
-      </li>      
-    </ul>
-  </div>
-</nav>
-
-<main role="main">
+  <main role="main">
+  <app-nav></app-nav>
 
   <div class="jumbotron">
     <div class="container">
@@ -48,7 +29,7 @@
         <app-modificar-pelicula (onPeliculaAModificar)="modificarPelicula($event)" *ngIf="hayPeliculaAmostrar" [peliculaMostrar]="peliculaMostrar"></app-modificar-pelicula>
       </div>
       <div class="col-md-2">
-        <app-borrar-pelicula (onPeliculaABorrar)="borrarPelicula($event)" [peliculaMostrar]="peliculaMostrar" *ngIf="hayPeliculaAmostrar"></app-borrar-pelicula>       
+        <app-borrar-pelicula (onPeliculaABorrar)="borrarPelicula($event)" [peliculaMostrar]="peliculaMostrar" *ngIf="hayPeliculaAmostrar"></app-borrar-pelicula>
       </div>
     </div>
     <hr>
@@ -56,8 +37,6 @@
 
 </main>
 
-<footer class="container">
-  <p>&copy; Ferrero Macarena 2023</p>
-</footer>
+<app-footer></app-footer>
 </body>
 </html>
