@@ -21,11 +21,9 @@ export class ActoresService {
         ...actorDato // Spread operator para agregar las propiedades de actorDato al objeto
       })
         .then(() => {
-          console.log(' Actor creado correctamente');
           resolve(); // Se resuelve la promesa si la operación se completa correctamente
         })
         .catch((error) => {
-          console.error('Error al crear el objeto Actor', error);
           reject(error); // Se rechaza la promesa si ocurre un error durante la operación
         });
     });

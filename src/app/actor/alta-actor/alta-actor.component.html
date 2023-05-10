@@ -1,3 +1,4 @@
+<router-outlet></router-outlet>
 
 <!doctype html>
 <html lang="es">
@@ -64,14 +65,12 @@
           <span *ngIf="formAltaActor.get('direccion')?.hasError('required') && formAltaActor.get('direccion')?.touched" class="text-danger form-floating">La dirección es requerida</span>
         </div>
 
-        <div class="row">
-          <div class="col-md-5 mb-3">
+        <div class="mb-3">
             <label for="nacionalidad">Nacionalidad</label>
-            <input class="form-control" id="nacionalidad" placeholder="{{pais}}" required readonly formControlName="nacionalidad">
-            <span *ngIf="formAltaActor.get('nacionalidad')?.hasError('required') && formAltaActor.get('nacionalidad')?.touched" class="text-danger form-floating">La nacionalidad es requerida</span>
-          </div>
+            <input class="form-control" id="nacionalidad" value="{{pais}}" readonly formControlName="nacionalidad">
+
         </div>
-        <button class="btn btn-primary btn-lg btn-block" [disabled]="formAltaActor.invalid" type="submit">Guardar</button>
+        <button class="btn btn-primary btn-lg btn-block" (click)="registrar()" [disabled]="formAltaActor.invalid" type="submit">Guardar</button>
 
         <hr class="mb-4">
       </form>

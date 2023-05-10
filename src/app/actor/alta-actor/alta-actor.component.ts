@@ -21,7 +21,7 @@ export class AltaActorComponent implements OnInit {
       nombre: new FormControl('',[Validators.pattern('^[a-zA-Z]+$')]),
       apellido: new FormControl('',[Validators.pattern('^[a-zA-Z]+$')]),
       email: new FormControl('',Validators.email),
-      nacionalidad: new FormControl('', Validators.required),
+      nacionalidad: new FormControl(''),
       direccion: new FormControl('',Validators.required),
       username: new FormControl('',Validators.required)
     })
@@ -29,14 +29,16 @@ export class AltaActorComponent implements OnInit {
 
   enviarForm(){
     console.log(this.formAltaActor.value);
+    console.log(this.pais);
   }
 
   mostrarPais(paisNombre:Pais){
     this.pais=paisNombre;
+    this.formAltaActor.controls['nacionalidad'].setValue(this.pais);
   }
 
 
-  registar(){
+  registrar(){
     console.log('Guardando Actor');
     const datoGrabar: Actor = {
       nombre: this.formAltaActor.get('nombre')?.value,
@@ -44,24 +46,14 @@ export class AltaActorComponent implements OnInit {
       username: this.formAltaActor.get('username')?.value,
       email: this.formAltaActor.get('email')?.value,
       direccion: this.formAltaActor.get('direccion')?.value,
-      nacionalidad:this.formAltaActor.get('pais')?.value,
+      nacionalidad:this.formAltaActor.get('nacionalidad')?.value
     }
     this.actor.crearActor(datoGrabar).then(() => {
-      this.showSuccess();
+      this.toastr.success("Actor creado correctamente","Guardado");
     }).catch((error: string) => {
-      this.showError(error);
+      this.toastr.error("Detalle "+ error, "Error");
     });
     //this.rutas.navigate(['actores/listadoActores']);
   }
-
-  showSuccess() {
-    this.toastr.success('Se guardó correctamente');
-  }
-
-  showError(error: string) {
-    this.toastr.error('Algo salió mal. Error: ' + error);
-  }
-
-
 
 }
