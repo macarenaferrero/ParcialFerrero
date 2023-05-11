@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Pelicula } from 'src/app/class/pelicula';
 import { PeliculasService } from 'src/app/services/peliculas.service';
@@ -14,7 +15,8 @@ export class ModificarPeliculaComponent implements OnInit {
   @Input() peliculaMostrar:any | Pelicula;
   @Output() onPeliculaAModificar:EventEmitter<Pelicula>= new EventEmitter();
   formModificarPelicula! : FormGroup;
-  constructor(public peliculaModificada:PeliculasService, private toastr: ToastrService) { }
+
+  constructor(public peliculaModificada:PeliculasService, private toastr: ToastrService, private router: Router) { }
 
 
   public opcionestipos = Object.values(EnumGeneroPeliculas);
@@ -45,8 +47,8 @@ export class ModificarPeliculaComponent implements OnInit {
     }).catch((error: string) => {
       this.toastr.error("Detalle "+ error, "Error");
     });
-    todo: //ver de recargar el listado para que no repita la pelicula
-    this.onPeliculaAModificar.emit(this.peliculaMostrar);
+    this.router.navigate(['/busqueda']);
   }
+
 
 }

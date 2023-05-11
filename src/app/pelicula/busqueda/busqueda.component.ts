@@ -36,7 +36,7 @@ export class BusquedaComponent implements OnInit {
         p.cantidadPublico === pelicula.cantidadPublico;
         p.fechaEstreno === pelicula.fechaEstreno;
         p.tipo === pelicula.tipo;
-        return pelicula;
+        return p;
       } else {
         return p; // Devuelve el elemento sin modificar si el id no coincide
       }
@@ -49,24 +49,28 @@ export class BusquedaComponent implements OnInit {
   constructor(public actor: PeliculasService, private toastr: ToastrService) { }
 
   getPeliculas() {
-    this.peliculas = [];
     this.suscripcion = this.actor.getPeliculas().subscribe((respuesta) => {
+      this.peliculas = [];
       respuesta.forEach((pelicula: any) => {
         this.peliculas.push({
           ...pelicula
         })
       });
     });
+    this.hayPeliculaAmostrar = false;
+    this.peliculaMostrar = undefined;
     this.toastr.success("Peliculas cargadas correctamente", "Cargado");
   }
 
-  uploadPelicula() {
-    const datoGrabar: Pelicula = {
-    }
-  }
+
 
   ngOnInit(): void {
-    this.getPeliculas();
+  this.getPeliculas();
+  }
+
+  ngOnDestroy() {
+    // Desuscribirse al destruir el componente
+    this.suscripcion.unsubscribe();
   }
 
 }

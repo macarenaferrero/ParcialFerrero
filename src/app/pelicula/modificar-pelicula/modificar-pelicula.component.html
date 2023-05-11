@@ -12,7 +12,7 @@
         <div class="form-group row">
           <label for="tipo" class="col-sm-2 col-form-label">Género</label>
           <div class="col-sm-6">
-            <select class="form-control" name="genero" [(ngModel)]= "peliculaMostrar.tipo" formControlName="tipo">
+            <select class="form-control" name="tipo" [(ngModel)]= "peliculaMostrar.tipo" formControlName="tipo">
                 <option *ngFor="let tipos of opcionestipos"
                 [value]="tipos">{{tipos}}</option>
             </select>
@@ -21,18 +21,18 @@
           </div>
         </div>
         <div class="form-group row">
-            <label for="publico" class="col-sm-2 col-form-label">Publico</label>
+            <label for="cantidadPublico" class="col-sm-2 col-form-label">Publico</label>
             <div class="col-sm-6">
-                <input type="number" class="form-control" name="publico" [(ngModel)]= "peliculaMostrar.cantidadPublico" formControlName="cantidadPublico">
-                <span *ngIf="formModificarPelicula.get('publico')?.hasError('required') && formModificarPelicula.get('publico')?.touched" class="text-danger form-floating">La cantidad de público es requerida</span>
+                <input type="number" class="form-control" name="cantidadPublico" [(ngModel)]= "peliculaMostrar.cantidadPublico" formControlName="cantidadPublico">
+                <span *ngIf="formModificarPelicula.get('cantidadPublico')?.hasError('required') && formModificarPelicula.get('cantidadPublico')?.touched" class="text-danger form-floating">La cantidad de público es requerida</span>
 
               </div>
         </div>
         <div class="form-group row">
-            <label for="estreno" class="col-sm-2 col-form-label">Estreno</label>
+            <label for="fechaEstreno" class="col-sm-2 col-form-label">Estreno</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="estreno" [(ngModel)]= "peliculaMostrar.fechaEstreno" formControlName="fechaEstreno">
-                <span *ngIf="formModificarPelicula.get('estreno')?.hasError('required') && formModificarPelicula.get('estreno')?.touched" class="text-danger form-floating">La fecha de estreno es requerida</span>
+                <input type="text" class="form-control" name="fechaEstreno" [(ngModel)]= "peliculaMostrar.fechaEstreno" formControlName="fechaEstreno">
+                <span *ngIf="formModificarPelicula.get('fechaEstreno')?.hasError('required') && formModificarPelicula.get('fechaEstreno')?.touched" class="text-danger form-floating">La fecha de estreno es requerida</span>
 
               </div>
         </div>

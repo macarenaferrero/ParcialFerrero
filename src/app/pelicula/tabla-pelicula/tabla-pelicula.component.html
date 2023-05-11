@@ -1,7 +1,6 @@
 <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Nombre</th>
         <th scope="col">Tipo</th>
         <th scope="col">Estreno</th>
@@ -11,7 +10,6 @@
     </thead>
     <tbody>
       <tr *ngFor="let pelicula of listadoPeliculas" (click)="onPeliculaSeleccionada(pelicula)">
-        <td>{{pelicula.id}}</td>
         <td>{{pelicula.nombre}}</td>
         <td>{{pelicula.tipo}}</td>
         <td>{{pelicula.fechaEstreno}}</td>

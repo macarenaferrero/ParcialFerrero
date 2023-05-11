@@ -68,6 +68,7 @@
         <div class="mb-3">
             <label for="nacionalidad">Nacionalidad</label>
             <input class="form-control" id="nacionalidad" value="{{pais}}" readonly formControlName="nacionalidad">
+            <span *ngIf="formAltaActor.get('nacionalidad')?.hasError('required')  && formAltaActor.get('direccion')?.touched" class="text-danger form-floating">La nacionalidad es requerida</span>
 
         </div>
         <button class="btn btn-primary btn-lg btn-block" (click)="registrar()" [disabled]="formAltaActor.invalid" type="submit">Guardar</button>

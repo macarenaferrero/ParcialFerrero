@@ -13,7 +13,4 @@ export class PaisesService {
   traerPaises(){
     return this.http.get('https://restcountries.com/v3.1/all');
   }
-
-
-
 }

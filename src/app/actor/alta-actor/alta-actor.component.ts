@@ -21,7 +21,7 @@ export class AltaActorComponent implements OnInit {
       nombre: new FormControl('',[Validators.pattern('^[a-zA-Z]+$')]),
       apellido: new FormControl('',[Validators.pattern('^[a-zA-Z]+$')]),
       email: new FormControl('',Validators.email),
-      nacionalidad: new FormControl(''),
+      nacionalidad: new FormControl('',Validators.required),
       direccion: new FormControl('',Validators.required),
       username: new FormControl('',Validators.required)
     })
