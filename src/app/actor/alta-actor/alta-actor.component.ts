@@ -49,7 +49,7 @@ export class AltaActorComponent implements OnInit {
       nacionalidad:this.formAltaActor.get('nacionalidad')?.value
     }
     this.actor.crearActor(datoGrabar).then(() => {
-      this.toastr.success("Actor creado correctamente","Guardado");
+      this.toastr.success("Actor creado correctamente","Guardado", { timeOut: 1000 });
     }).catch((error: string) => {
       this.toastr.error("Detalle "+ error, "Error");
     });
