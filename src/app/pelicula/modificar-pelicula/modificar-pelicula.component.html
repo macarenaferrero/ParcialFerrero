@@ -1,34 +1,42 @@
 <h2>Modificar Pelicula</h2>
     <div>
-     <form >
+     <form [formGroup]="formModificarPelicula">
         <div class="form-group row">
           <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
           <div class="col-sm-6">
-            <input type="text"  class="form-control" name="nombre" [(ngModel)]= "peliculaMostrar.nombre">
+            <input type="text"  class="form-control" name="nombre" [(ngModel)]= "peliculaMostrar.nombre" formControlName="nombre">
+            <span *ngIf="formModificarPelicula.get('nombre')?.hasError('required') && formModificarPelicula.get('nombre')?.touched" class="text-danger form-floating">El nombre es requerido</span>
+
           </div>
         </div>
         <div class="form-group row">
           <label for="tipo" class="col-sm-2 col-form-label">Género</label>
           <div class="col-sm-6">
-            <select class="form-control" name="genero" [(ngModel)]= "peliculaMostrar.tipo">
-                <option *ngFor="let tipos of opcionestipos" 
+            <select class="form-control" name="genero" [(ngModel)]= "peliculaMostrar.tipo" formControlName="tipo">
+                <option *ngFor="let tipos of opcionestipos"
                 [value]="tipos">{{tipos}}</option>
             </select>
+            <span *ngIf="formModificarPelicula.get('tipo')?.hasError('required') && formModificarPelicula.get('tipo')?.touched" class="text-danger form-floating">El tipo es requerido</span>
+
           </div>
         </div>
         <div class="form-group row">
             <label for="publico" class="col-sm-2 col-form-label">Publico</label>
             <div class="col-sm-6">
-                <input type="number" class="form-control" name="publico" [(ngModel)]= "peliculaMostrar.cantidadPublico">
-            </div>
+                <input type="number" class="form-control" name="publico" [(ngModel)]= "peliculaMostrar.cantidadPublico" formControlName="cantidadPublico">
+                <span *ngIf="formModificarPelicula.get('publico')?.hasError('required') && formModificarPelicula.get('publico')?.touched" class="text-danger form-floating">La cantidad de público es requerida</span>
+
+              </div>
         </div>
         <div class="form-group row">
             <label for="estreno" class="col-sm-2 col-form-label">Estreno</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="estreno" [(ngModel)]= "peliculaMostrar.fechaEstreno">
-            </div>
+                <input type="text" class="form-control" name="estreno" [(ngModel)]= "peliculaMostrar.fechaEstreno" formControlName="fechaEstreno">
+                <span *ngIf="formModificarPelicula.get('estreno')?.hasError('required') && formModificarPelicula.get('estreno')?.touched" class="text-danger form-floating">La fecha de estreno es requerida</span>
+
+              </div>
         </div>
-        <button class="btn btn-outline-success" (click)="modificarPelicula(peliculaMostrar!)">Guardar</button> 
+        <button class="btn btn-outline-success"[disabled]="formModificarPelicula.invalid"  (click)="updatePelicula()">Guardar</button>
 
       </form>
     </div>

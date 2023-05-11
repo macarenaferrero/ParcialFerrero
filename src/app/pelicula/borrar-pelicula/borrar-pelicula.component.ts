@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pelicula } from 'src/app/class/pelicula';
+import { PeliculasService } from 'src/app/services/peliculas.service';
 
 @Component({
   selector: 'app-borrar-pelicula',
@@ -9,13 +10,15 @@ import { Pelicula } from 'src/app/class/pelicula';
 export class BorrarPeliculaComponent implements OnInit {
   @Input() peliculaMostrar?: Pelicula;
   @Output() onPeliculaABorrar:EventEmitter<Pelicula>= new EventEmitter();
-
-  constructor() { }
+  constructor(public peliculaAborrar:PeliculasService) { }
 
   ngOnInit(): void {
   }
-  BorrarPelicula(pelicula:Pelicula){
-     this.onPeliculaABorrar.emit(pelicula);
+  borrarPelicula(pelicula:Pelicula){
+    this.peliculaAborrar.deletePelicula(pelicula.id??"");
+    this.onPeliculaABorrar.emit(pelicula);
+
+
   }
 }
 

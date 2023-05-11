@@ -1,14 +1,14 @@
 import { EnumGeneroPeliculas } from "../utils/enum-genero-peliculas";
 
 export class Pelicula {
-    id?: number;
+    id?: string;
     nombre?: string;
     tipo?: EnumGeneroPeliculas;
     fechaEstreno?: string;
     cantidadPublico?: number;
     fotoPelicula?:string;
 
-    constructor(id: number, nombre: string, tipo:EnumGeneroPeliculas, fechaEstreno: string, cantidadPublico: number,
+    constructor(id: string, nombre: string, tipo:EnumGeneroPeliculas, fechaEstreno: string, cantidadPublico: number,
     fotoPelicula: string){
         this.id = id;
         this.nombre = nombre;

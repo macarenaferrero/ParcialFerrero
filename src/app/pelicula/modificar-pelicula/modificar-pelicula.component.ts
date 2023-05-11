@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Pelicula } from 'src/app/class/pelicula';
+import { PeliculasService } from 'src/app/services/peliculas.service';
 import { EnumGeneroPeliculas } from 'src/app/utils/enum-genero-peliculas';
 
 @Component({
@@ -11,19 +13,40 @@ import { EnumGeneroPeliculas } from 'src/app/utils/enum-genero-peliculas';
 export class ModificarPeliculaComponent implements OnInit {
   @Input() peliculaMostrar:any | Pelicula;
   @Output() onPeliculaAModificar:EventEmitter<Pelicula>= new EventEmitter();
-
-  constructor() { }
+  formModificarPelicula! : FormGroup;
+  constructor(public peliculaModificada:PeliculasService, private toastr: ToastrService) { }
 
 
   public opcionestipos = Object.values(EnumGeneroPeliculas);
 
-  modificarPelicula(peliculaMostrar:Pelicula){
-    this.onPeliculaAModificar.emit(this.peliculaMostrar);
-  }
 
 
 
   ngOnInit(): void {
+    this.formModificarPelicula = new FormGroup({
+      nombre: new FormControl('',[Validators.required]),
+      fechaEstreno: new FormControl('',[Validators.required]),
+      cantidadPublico: new FormControl('',Validators.required),
+      tipo: new FormControl('',Validators.required),
+    })
+  }
+
+  updatePelicula(){
+    console.log('Actualizando película');
+    const datoGrabar: Pelicula = {
+      id: this.peliculaMostrar.id,
+      nombre: this.formModificarPelicula.get('nombre')?.value,
+      fechaEstreno: this.formModificarPelicula.get('fechaEstreno')?.value,
+      cantidadPublico: this.formModificarPelicula.get('cantidadPublico')?.value,
+      tipo: this.formModificarPelicula.get('tipo')?.value,
+    }
+    this.peliculaModificada.updatePelicula(datoGrabar).then(() => {
+      this.toastr.success("Pelicula guardada correctamente","Guardado");
+    }).catch((error: string) => {
+      this.toastr.error("Detalle "+ error, "Error");
+    });
+    todo: //ver de recargar el listado para que no repita la pelicula
+    this.onPeliculaAModificar.emit(this.peliculaMostrar);
   }
 
 }

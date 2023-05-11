@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { SharedModule } from '../shared/shared.module';
 import { TablaPeliculaComponent } from './tabla-pelicula/tabla-pelicula.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { PeliculasRoutingModule } from './peliculas-routing.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -32,6 +32,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     ToastrModule,
     SharedModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     PeliculasRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
