@@ -24,6 +24,8 @@
     </div>
     <div class="col-md-8 order-md-1">
       <h1 class="display-3 mt-3">Alta Actor</h1>
+      <p>Ingrese la información solicitada del actor que desea añadir.</p>
+
       <form [formGroup]="formAltaActor" (ngSubmit)="enviarForm()" >
         <div class="row">
           <div class="col-md-6 mb-3">
@@ -66,9 +68,9 @@
         </div>
 
         <div class="mb-3">
-            <label for="nacionalidad">Nacionalidad</label>
-            <input class="form-control" id="nacionalidad" value="{{pais}}" readonly formControlName="nacionalidad">
-            <span *ngIf="formAltaActor.get('nacionalidad')?.hasError('required')  && formAltaActor.get('direccion')?.touched" class="text-danger form-floating">La nacionalidad es requerida</span>
+          <label for="nacionalidad">Nacionalidad</label>
+          <input class="form-control" id="nacionalidad" value="{{pais}}" readonly formControlName="nacionalidad">
+          <span *ngIf="formAltaActor.get('nacionalidad')?.hasError('required')  && formAltaActor.get('direccion')?.touched" class="text-danger form-floating">La nacionalidad es requerida</span>
 
         </div>
         <button class="btn btn-primary btn-lg btn-block" (click)="registrar()" [disabled]="formAltaActor.invalid" type="submit">Guardar</button>

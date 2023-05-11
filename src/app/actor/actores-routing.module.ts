@@ -6,9 +6,9 @@ import { ErrorComponent } from '../shared/error/error/error.component';
 
 const rutas: Routes = [
   {path: '', component:AltaActorComponent},
-  {path: 'altaActor', redirectTo: '', pathMatch: 'full'},
-  {path: 'listadoActores', component:ListadoActoresComponent},
-  {path:"**",component:ErrorComponent}
+  {path: 'actor/altaActor', component:AltaActorComponent},
+  {path: 'actor/listadoActores', component:ListadoActoresComponent},
+  //{path:"**",component:ErrorComponent}
 ];
 
 @NgModule({

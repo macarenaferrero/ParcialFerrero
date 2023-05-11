@@ -15,6 +15,8 @@ import { PeliculasRoutingModule } from './peliculas-routing.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { ListadoPeliculasComponent } from './listado-peliculas/listado-peliculas.component';
+import { AltaPeliculaComponent } from './alta-pelicula/alta-pelicula.component';
 
 
 
@@ -24,7 +26,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     DetallePeliculaComponent,
     ModificarPeliculaComponent,
     TablaPeliculaComponent,
-    BusquedaComponent
+    BusquedaComponent,
+    ListadoPeliculasComponent,
+    AltaPeliculaComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +47,10 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     DetallePeliculaComponent,
     ModificarPeliculaComponent,
     TablaPeliculaComponent,
-    BusquedaComponent
+    BusquedaComponent,
+    ListadoPeliculasComponent,
+    AltaPeliculaComponent
+
   ],
 })
 export class PeliculasModule { }

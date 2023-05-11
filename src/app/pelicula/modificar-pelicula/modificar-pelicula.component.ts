@@ -43,7 +43,7 @@ export class ModificarPeliculaComponent implements OnInit {
       tipo: this.formModificarPelicula.get('tipo')?.value,
     }
     this.peliculaModificada.updatePelicula(datoGrabar).then(() => {
-      this.toastr.success("Pelicula guardada correctamente","Guardado");
+      this.toastr.success("Pelicula guardada correctamente","Guardado", { timeOut: 1000 });
     }).catch((error: string) => {
       this.toastr.error("Detalle "+ error, "Error");
     });

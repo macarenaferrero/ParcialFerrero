@@ -13,7 +13,7 @@ const rutas: Routes = [
   {path: "busqueda", loadChildren:()=>import('./pelicula/peliculas.module').then(m => PeliculasModule)},
   {path: "altaActor", loadChildren:()=>import('./actor/actores.module').then(m => ActoresModule)},
   {path: '', redirectTo: '/bienvenido', pathMatch: 'full'},
-  {path:"**",component:ErrorComponent}
+  //{path:"**",component:ErrorComponent}
 ];
 
 @NgModule({

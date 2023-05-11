@@ -59,7 +59,7 @@ export class BusquedaComponent implements OnInit {
     });
     this.hayPeliculaAmostrar = false;
     this.peliculaMostrar = undefined;
-    this.toastr.success("Peliculas cargadas correctamente", "Cargado");
+    this.toastr.success("Peliculas cargadas correctamente", "Cargado", { timeOut: 1000 });
   }
 
 
