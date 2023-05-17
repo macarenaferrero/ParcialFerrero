@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pelicula } from 'src/app/class/pelicula';
-import { EnumGeneroPeliculas } from 'src/app/utils/enum-genero-peliculas';
 
 @Component({
   selector: 'app-tabla-pelicula',

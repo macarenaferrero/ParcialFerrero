@@ -32,7 +32,6 @@ ngOnInit(): void {
     cantidadPublico: new FormControl('',Validators.required),
     fotoPelicula: new FormControl(''),
     actor: new FormControl('',Validators.required)
-    //fotoPelicula: new FormControl('',Validators.required)np
 
   })
 }

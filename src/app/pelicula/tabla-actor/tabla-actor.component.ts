@@ -1,9 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Actor } from 'src/app/class/actor';
-import { Pelicula } from 'src/app/class/pelicula';
 import { ActoresService } from 'src/app/services/actores.service';
-import { PeliculasService } from 'src/app/services/peliculas.service';
 
 @Component({
   selector: 'app-tabla-actor',
@@ -58,6 +56,9 @@ emitirActor(actor: Actor) {
   this.eventoActorSeleccionado.emit(actor);
 }
 
+onDestroy(): void {
+  this.suscripcion.unsubscribe();
+}
 
 }
 

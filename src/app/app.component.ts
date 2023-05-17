@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +7,6 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent {
   title = 'ParcialFerrero';
-  suscripcion! : Subscription;
 
 constructor(){}
 ngOnInit(){

@@ -1,21 +1,20 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AltaActorComponent } from './alta-actor/alta-actor.component';
-import { TablaPaisesComponent } from './tabla-paises/tabla-paises.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from '../shared/shared.module';
+import { NgModule } from '@angular/core';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ActoresRoutingModule } from './actores-routing.module';
-import { ListadoActoresComponent } from './listado-actores/listado-actores.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { ToastrModule } from 'ngx-toastr';
 import { environment } from '../../environments/environment';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { PeliculasModule } from '../pelicula/peliculas.module';
-import { DetalleNacionalidadComponent } from './detalle-nacionalidad/detalle-nacionalidad.component';
+import { SharedModule } from '../shared/shared.module';
+import { ActoresRoutingModule } from './actores-routing.module';
+import { AltaActorComponent } from './alta-actor/alta-actor.component';
 import { DetalleActorComponent } from './detalle-actor/detalle-actor.component';
+import { DetalleNacionalidadComponent } from './detalle-nacionalidad/detalle-nacionalidad.component';
+import { ListadoActoresComponent } from './listado-actores/listado-actores.component';
+import { TablaPaisesComponent } from './tabla-paises/tabla-paises.component';
 
 
 @NgModule({

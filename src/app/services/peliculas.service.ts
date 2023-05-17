@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, doc, deleteDoc, setDoc, CollectionReference, DocumentData, updateDoc } from '@angular/fire/firestore';
-import { Observable, Subscription, lastValueFrom, map } from 'rxjs';
+import { CollectionReference, DocumentData, Firestore, collection, collectionData, deleteDoc, doc, setDoc, updateDoc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { Pelicula } from '../class/pelicula';
 
 @Injectable({
@@ -8,8 +8,6 @@ import { Pelicula } from '../class/pelicula';
 })
 export class PeliculasService {
   coleccionPeliculas: CollectionReference<DocumentData> = collection(this.firestore, 'peliculas');
-  peliculasByActor!: Observable<Pelicula[]>;
-  suscripcion: Subscription = new Subscription();
   peliculas: Pelicula[] = [];
   constructor(private firestore: Firestore) { }
 

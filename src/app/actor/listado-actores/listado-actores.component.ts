@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { Actor } from 'src/app/class/actor';
@@ -62,5 +62,9 @@ export class ListadoActoresComponent {
           console.error('Error al obtener información del país:', error);
         }
       );
+  }
+
+  onDestroy(): void {
+    this.suscripcion.unsubscribe();
   }
 }

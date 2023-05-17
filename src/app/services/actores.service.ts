@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Actor } from '../class/actor';
+import { CollectionReference, DocumentData, Firestore, collection, collectionData, doc, setDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { CollectionReference, DocumentData, Firestore, collection, collectionData, doc, getDocs, setDoc } from '@angular/fire/firestore';
+import { Actor } from '../class/actor';
 
 
 @Injectable({
