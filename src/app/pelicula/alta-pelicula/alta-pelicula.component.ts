@@ -19,6 +19,7 @@ export class AltaPeliculaComponent {
   public opcionestipos = Object.values(EnumGeneroPeliculas);
   urlFoto?: string;
   public actor?: Actor;
+  public obtengoFile?:string;
 
 constructor(public pelicula: PeliculasService, private toastr: ToastrService, private router: Router,
   private firestore: Firestore,){}
@@ -39,41 +40,26 @@ ngOnInit(): void {
 registrar(){
   console.log('Guardando Pelicula');
 
-  //   const archivo = evento.target?.files[0];
-  //   const ruta = `ruta/a/tu/foto/${archivo.name}`;
-  //   const referencia = provideStorage(() => getStorage()).ref(ruta);
-  //   const tarea = referencia.put(archivo);
-
-  //   tarea.snapshotChanges().pipe(
-  //     finalize(() => {
-  //       referencia.getDownloadURL().subscribe(url => {
-  //         this.urlFoto = url;
-  //         this.formAltaPelicula.get('fotoPelicula')?.patchValue(this.urlFoto);
-  //       });
-  //     })
-  //   ).subscribe();
-  // }
-
-
   const datoGrabar: Pelicula = {
     nombre: this.formAltaPelicula.get('nombre')?.value,
     fechaEstreno: this.formAltaPelicula.get('fechaEstreno')?.value,
     tipo: this.formAltaPelicula.get('tipo')?.value,
     cantidadPublico: this.formAltaPelicula.get('cantidadPublico')?.value,
     actor: this.formAltaPelicula.get('actor')?.value,
-    //fotoPelicula: this.formAltaPelicula.get('fotoPelicula')?.patchValue?.toString()
+    fotoPelicula: this.formAltaPelicula.get('fotoPelicula')?.value
   }
   this.pelicula.crearPelicula(datoGrabar).then(() => {
     this.toastr.success("Pelicula creada correctamente","Guardado", { timeOut: 1000 });
   }).catch((error: string) => {
     this.toastr.error("Detalle: "+ error, "Error");
   });
-  this.router.navigate(['/pelicula/listadoPeliculas']);
+  this.router.navigate(['/busqueda']);
 }
 
 mostrarActor(actorNombre:Actor){
   this.actor= actorNombre;
   this.formAltaPelicula.controls['actor'].setValue(this.actor);
 }
+
 
 }

@@ -52,14 +52,19 @@
           <span *ngIf="formAltaPelicula.get('fechaEstreno')?.hasError('required') && formAltaPelicula.get('fechaEstreno')?.touched" class="text-danger form-floating">La fecha de estreno es requerida</span>
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label for="fotoPelicula">Foto</label>
           <br>
           <input type="file" name="fotoPelicula" id="fotoPelicula" formControlName="fotoPelicula">
 
           <br>
-          <!-- <span *ngIf="formAltaPelicula.get('fotoPelicula')?.hasError('required') && formAltaPelicula.get('fotoPelicula')?.touched" class="text-danger form-floating">La foto es requerida</span> -->
-        </div>
+          <span *ngIf="formAltaPelicula.get('fotoPelicula')?.hasError('required') && formAltaPelicula.get('fotoPelicula')?.touched" class="text-danger form-floating">La foto es requerida</span>
+        </div> -->
+
+        <div class="mb-3">
+          <label for="fotoPelicula">Foto Película<span class="text-muted"> (Opcional)</span></label>
+          <input placeholder="Inserte URL" type="text" class="form-control" formControlName="fotoPelicula">
+      </div>
 
         <div class="mb-3">
           <label for="actor">Actor</label>
