@@ -4,6 +4,7 @@ import { Actor } from 'src/app/class/actor';
 import { Pais } from 'src/app/class/pais';
 import { ActoresService } from 'src/app/services/actores.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alta-actor',
@@ -14,7 +15,7 @@ export class AltaActorComponent implements OnInit {
   public pais?:Pais;
   formAltaActor! : FormGroup;
   actorNuevo!: Actor;
-  constructor(public actor: ActoresService, private toastr: ToastrService) { }
+  constructor(public actor: ActoresService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.formAltaActor = new FormGroup({
@@ -49,11 +50,11 @@ export class AltaActorComponent implements OnInit {
       nacionalidad:this.formAltaActor.get('nacionalidad')?.value
     }
     this.actor.crearActor(datoGrabar).then(() => {
-      this.toastr.success("Actor creado correctamente","Guardado", { timeOut: 1000 });
+      this.toastr.success("Actor creado correctamente","Guardado", { timeOut: 1500 });
     }).catch((error: string) => {
-      this.toastr.error("Detalle "+ error, "Error");
+      this.toastr.error("Detalle: "+ error, "Error");
     });
-    //this.rutas.navigate(['actores/listadoActores']);
+    this.router.navigate(['/actor/actorPelicula']);
   }
 
 }

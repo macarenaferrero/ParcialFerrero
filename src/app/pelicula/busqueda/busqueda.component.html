@@ -14,10 +14,10 @@
 
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-3">Peliculas</h1>
+      <h1 class="display-3">Listado Peliculas</h1>
       <p>Selecciona la pelicula que quieres ver, editar o borrar</p>
 
-      <app-tabla-pelicula [listadoPeliculas]="peliculas" (peliculaSeleccionada)="mostrarPelicula($event)"></app-tabla-pelicula>
+      <app-tabla-pelicula [mostrarBoton]="true" [listadoPeliculas]="peliculas" (peliculaSeleccionada)="mostrarPelicula($event)"></app-tabla-pelicula>
     </div>
   </div>
 

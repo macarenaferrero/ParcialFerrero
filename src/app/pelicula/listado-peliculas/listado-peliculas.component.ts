@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Pelicula } from 'src/app/class/pelicula';
 
 @Component({
   selector: 'app-listado-peliculas',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./listado-peliculas.component.css']
 })
 export class ListadoPeliculasComponent {
+  listadoPeliculas:Pelicula[]= []
+  peliculaMostrar?: Pelicula;
 
 }

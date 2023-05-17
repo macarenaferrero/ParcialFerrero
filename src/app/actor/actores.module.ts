@@ -13,13 +13,18 @@ import { ListadoActoresComponent } from './listado-actores/listado-actores.compo
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { PeliculasModule } from '../pelicula/peliculas.module';
+import { DetalleNacionalidadComponent } from './detalle-nacionalidad/detalle-nacionalidad.component';
+import { DetalleActorComponent } from './detalle-actor/detalle-actor.component';
 
 
 @NgModule({
   declarations: [
     AltaActorComponent,
     TablaPaisesComponent,
-    ListadoActoresComponent
+    ListadoActoresComponent,
+    DetalleNacionalidadComponent,
+    DetalleActorComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +37,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     ActoresRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    PeliculasModule
   ],
   exports: [
     AltaActorComponent,

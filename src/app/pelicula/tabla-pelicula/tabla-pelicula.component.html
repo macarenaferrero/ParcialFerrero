@@ -1,4 +1,4 @@
-<table class="table table-striped">
+<table class="table table-striped" *ngIf="listadoPeliculas != undefined">
     <thead>
       <tr>
         <th scope="col">Nombre</th>
@@ -15,7 +15,7 @@
         <td>{{pelicula.fechaEstreno}}</td>
         <td>{{pelicula.cantidadPublico}}</td>
         <td><img width="80px" [src]="pelicula.fotoPelicula"></td>
-        <td><button class="btn btn-dark">Seleccionar</button></td>
+        <td><button *ngIf="mostrarBoton" class="btn btn-dark">Seleccionar</button></td>
       </tr>
     </tbody>
   </table>

@@ -14,6 +14,7 @@ export class BusquedaComponent implements OnInit {
   suscripcion: Subscription = new Subscription();
   peliculaMostrar?: Pelicula;
   hayPeliculaAmostrar: boolean = false;
+  mostrarBoton = true;
 
   mostrarPelicula(pelicula: Pelicula) {
     this.peliculaMostrar = pelicula;
@@ -46,10 +47,10 @@ export class BusquedaComponent implements OnInit {
     this.hayPeliculaAmostrar = false;
   }
 
-  constructor(public actor: PeliculasService, private toastr: ToastrService) { }
+  constructor(public peliculaService: PeliculasService, private toastr: ToastrService) { }
 
   getPeliculas() {
-    this.suscripcion = this.actor.getPeliculas().subscribe((respuesta) => {
+    this.suscripcion = this.peliculaService.getPeliculas().subscribe((respuesta) => {
       this.peliculas = [];
       respuesta.forEach((pelicula: any) => {
         this.peliculas.push({

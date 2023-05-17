@@ -7,7 +7,7 @@ import { ErrorComponent } from '../shared/error/error/error.component';
 const rutas: Routes = [
   {path: '', component:AltaActorComponent},
   {path: 'actor/altaActor', component:AltaActorComponent},
-  {path: 'actor/listadoActores', component:ListadoActoresComponent},
+  {path: 'actor/actorPelicula', component:ListadoActoresComponent},
   //{path:"**",component:ErrorComponent}
 ];
 

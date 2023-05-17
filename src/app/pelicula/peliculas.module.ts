@@ -17,6 +17,7 @@ import { environment } from '../../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { ListadoPeliculasComponent } from './listado-peliculas/listado-peliculas.component';
 import { AltaPeliculaComponent } from './alta-pelicula/alta-pelicula.component';
+import { TablaActorComponent } from './tabla-actor/tabla-actor.component';
 
 
 
@@ -28,7 +29,8 @@ import { AltaPeliculaComponent } from './alta-pelicula/alta-pelicula.component';
     TablaPeliculaComponent,
     BusquedaComponent,
     ListadoPeliculasComponent,
-    AltaPeliculaComponent
+    AltaPeliculaComponent,
+    TablaActorComponent
   ],
   imports: [
     CommonModule,
@@ -49,8 +51,8 @@ import { AltaPeliculaComponent } from './alta-pelicula/alta-pelicula.component';
     TablaPeliculaComponent,
     BusquedaComponent,
     ListadoPeliculasComponent,
-    AltaPeliculaComponent
-
+    AltaPeliculaComponent,
+    TablaActorComponent,
   ],
 })
 export class PeliculasModule { }

@@ -11,6 +11,14 @@ export class PaisesService {
   constructor(private http: HttpClient) { }
 
   traerPaises(){
-    return this.http.get('https://restcountries.com/v3.1/all');
+    const url = 'https://restcountries.com/v3.1/all';
+
+    return this.http.get(url);
+  }
+
+  obtenerInformacionPais(nombrePais: string){
+    const url = `https://restcountries.com/v3.1/name/${nombrePais}`;
+
+    return this.http.get<any[]>(url);
   }
 }

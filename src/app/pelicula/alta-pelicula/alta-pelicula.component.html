@@ -19,8 +19,7 @@
       <h4 class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-muted mt-5">Actor</span>
       </h4>
-      <!-- <app-tabla-paises (eventoPaisSeleccionado)="mostrarPais($event)"></app-tabla-paises> -->
-
+      <app-tabla-actor (eventoActorSeleccionado)="mostrarActor($event)"></app-tabla-actor>
     </div>
     <div class="col-md-8 order-md-1">
       <h1 class="display-3 mt-3">Alta Pelicula</h1>
@@ -53,7 +52,22 @@
           <span *ngIf="formAltaPelicula.get('fechaEstreno')?.hasError('required') && formAltaPelicula.get('fechaEstreno')?.touched" class="text-danger form-floating">La fecha de estreno es requerida</span>
         </div>
 
-        <button class="btn btn-primary btn-lg btn-block"  [disabled]="formAltaPelicula.invalid" type="submit">Guardar</button>
+        <div class="mb-3">
+          <label for="fotoPelicula">Foto</label>
+          <br>
+          <input type="file" name="fotoPelicula" id="fotoPelicula" formControlName="fotoPelicula">
+
+          <br>
+          <!-- <span *ngIf="formAltaPelicula.get('fotoPelicula')?.hasError('required') && formAltaPelicula.get('fotoPelicula')?.touched" class="text-danger form-floating">La foto es requerida</span> -->
+        </div>
+
+        <div class="mb-3">
+          <label for="actor">Actor</label>
+          <input type="text" name="actor" id="actor" value="{{actor?.nombre}}" readonly formControlName="actor" class="form-control">
+          <span *ngIf="formAltaPelicula.get('actor')?.hasError('required') && formAltaPelicula.get('actor')?.touched" class="text-danger form-floating">Seleccione el actor protagonista.</span>
+        </div>
+
+        <button class="btn btn-primary btn-lg btn-block" (click)="registrar()"  [disabled]="formAltaPelicula.invalid" type="submit">Guardar</button>
 
         <hr class="mb-4">
 

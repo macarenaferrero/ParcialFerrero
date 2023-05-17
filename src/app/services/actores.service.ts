@@ -30,8 +30,7 @@ export class ActoresService {
   }
 
   getListadoActores(): Observable<any>{
-    const coleccion = collection(this.firestore, 'actores');
-    const observable = collectionData(coleccion);
+    const observable = collectionData(this.coleccionActores);
     return observable;
   }
 

@@ -8,10 +8,11 @@ import { EnumGeneroPeliculas } from 'src/app/utils/enum-genero-peliculas';
   styleUrls: ['./tabla-pelicula.component.css']
 })
 export class TablaPeliculaComponent implements OnInit {
- 
+
   constructor() { }
-  @Input()  listadoPeliculas:Pelicula[]=[];
+  @Input()  listadoPeliculas?:Pelicula[]=[];
   @Output() peliculaSeleccionada = new EventEmitter<Pelicula>();
+  @Input() mostrarBoton: boolean = false;
 
   onPeliculaSeleccionada(pelicula: Pelicula){
     this.peliculaSeleccionada.emit(pelicula);

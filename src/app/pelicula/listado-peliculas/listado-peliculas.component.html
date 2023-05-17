@@ -1,25 +1,19 @@
-<router-outlet></router-outlet>
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Listado Películas</title>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Estreno</th>
+      <th scope="col">Público</th>
+      <th scope="col">Tipo</th>
+    </tr>
+    <tr  *ngFor="let pelicula of listadoPeliculas">
+      <td>{{peliculaMostrar!.nombre}}</td>
+      <td>{{peliculaMostrar!.fechaEstreno}}</td>
+      <td>{{peliculaMostrar!.cantidadPublico}}</td>
+      <td>{{peliculaMostrar!.tipo}}</td>
+    </tr>
+  </thead>
+  <tbody>
 
-  </head>
-  <body>
-
-  <main role="main">
-  <app-nav></app-nav>
-
-  <div class="jumbotron">
-    <div class="container">
-      <h1 class="display-3">Listado Películas</h1>
-      <p>Este es el listado de películas</p>
-    </div>
-  </div>
-</main>
-
-<app-footer></app-footer>
-</body>
-</html>
+  </tbody>
+</table>
