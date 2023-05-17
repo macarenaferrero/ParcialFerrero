@@ -68,7 +68,7 @@
 
         <div class="mb-3">
           <label for="actor">Actor</label>
-          <input type="text" name="actor" id="actor" value="{{actor?.nombre}}" readonly formControlName="actor" class="form-control">
+          <input type="text" name="actor" id="actor" value="{{actor?.nombre}} {{actor?.apellido}}" readonly formControlName="actor" class="form-control">
           <span *ngIf="formAltaPelicula.get('actor')?.hasError('required') && formAltaPelicula.get('actor')?.touched" class="text-danger form-floating">Seleccione el actor protagonista.</span>
         </div>
 

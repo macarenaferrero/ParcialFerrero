@@ -43,8 +43,8 @@ export class ListadoActoresComponent {
   emitirActor(actor: Actor) {
     console.log(actor.nacionalidad);
     this.actorSeleccionado = actor;
-    const nombreActor:any = actor.nombre;
-    this.peliculasPorActor = this.peliculas?.filter((pelicula:Pelicula) => pelicula.actor == nombreActor);
+    //const nombreActor:any = actor.nombre;
+    this.peliculasPorActor = this.peliculas?.filter((pelicula:Pelicula) => pelicula.actor?.nombre == actor.nombre);
     console.log(this.peliculasPorActor);
     this.nacionalidadActor = actor.nacionalidad as string;
     this.buscarInformacionPais(this.nacionalidadActor);
