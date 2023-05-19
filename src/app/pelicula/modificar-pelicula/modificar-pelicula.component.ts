@@ -2,21 +2,21 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Pelicula } from 'src/app/class/pizza';
-import { PeliculasService } from 'src/app/services/Pizza.service';
+import { Pizza } from 'src/app/class/pizza';
+import { PizzaService } from 'src/app/services/Pizza.service';
 import { EnumGeneroPeliculas } from 'src/app/utils/enum-genero-peliculas';
 
 @Component({
-  selector: 'app-modificar-pelicula',
-  templateUrl: './modificar-pelicula.component.html',
-  styleUrls: ['./modificar-pelicula.component.css']
+  selector: 'app-pizza-pelicula',
+  templateUrl: './modificar-pizza.component.html',
+  styleUrls: ['./modificar-pizza.component.css']
 })
-export class ModificarPeliculaComponent implements OnInit {
-  @Input() peliculaMostrar:any | Pelicula;
-  @Output() onPeliculaAModificar:EventEmitter<Pelicula>= new EventEmitter();
-  formModificarPelicula! : FormGroup;
+export class ModificarPizzaComponent implements OnInit {
+  @Input() pizzaAMostrar:any | Pizza;
+  @Output() onPizzaAModificar:EventEmitter<Pizza>= new EventEmitter();
+  formModificarPizza! : FormGroup;
 
-  constructor(public peliculaModificada:PeliculasService, private toastr: ToastrService, private router: Router) { }
+  constructor(public pizzaModificada:PizzaService, private toastr: ToastrService, private router: Router) { }
 
 
   public opcionestipos = Object.values(EnumGeneroPeliculas);
@@ -25,25 +25,25 @@ export class ModificarPeliculaComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.formModificarPelicula = new FormGroup({
+    this.formModificarPizza = new FormGroup({
       nombre: new FormControl('',[Validators.required]),
-      fechaEstreno: new FormControl('',[Validators.required]),
-      cantidadPublico: new FormControl('',Validators.required),
-      tipo: new FormControl('',Validators.required),
+      ingredientes: new FormControl('',[Validators.required]),
+      peso: new FormControl('',Validators.required),
+      precio: new FormControl('',Validators.required),
     })
   }
 
-  updatePelicula(){
-    console.log('Actualizando película');
-    const datoGrabar: Pelicula = {
-      id: this.peliculaMostrar.id,
-      nombre: this.formModificarPelicula.get('nombre')?.value,
-      fechaEstreno: this.formModificarPelicula.get('fechaEstreno')?.value,
-      cantidadPublico: this.formModificarPelicula.get('cantidadPublico')?.value,
-      tipo: this.formModificarPelicula.get('tipo')?.value,
+  updatePizza(){
+    console.log('Actualizando pizza');
+    const datoGrabar: Pizza = {
+      id: this.pizzaAMostrar.id,
+      nombre: this.pizzaAMostrar.nombre,
+      ingredientes: this.pizzaAMostrar.get('ingredientes')?.value,
+      peso: this.pizzaAMostrar.get('peso')?.value,
+      precio: this.pizzaAMostrar.get('precio')?.value,
     }
-    this.peliculaModificada.updatePelicula(datoGrabar).then(() => {
-      this.toastr.success("Pelicula guardada correctamente","Guardado", { timeOut: 1000 });
+    this.pizzaAMostrar.updatePizza(datoGrabar).then(() => {
+      this.toastr.success("Pizza guardada correctamente","Guardado", { timeOut: 1000 });
     }).catch((error: string) => {
       this.toastr.error("Detalle "+ error, "Error");
     });

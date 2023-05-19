@@ -12,7 +12,7 @@ import { RepartidoresRoutingModule } from './actor/repartidores-routing.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-import { PeliculasRoutingModule } from './pelicula/pizzas-routing.module';
+import { PizzasRoutingModule } from './pelicula/pizzas-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { RegistroComponent } from './auth/registro/registro.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -41,7 +41,7 @@ import { AngularFireModule } from "@angular/fire/compat";
     SharedModule,
     HttpClientModule,
     RepartidoresRoutingModule,
-    PeliculasRoutingModule,
+    PizzasRoutingModule,
   ],
   exports: [],
   providers: [],

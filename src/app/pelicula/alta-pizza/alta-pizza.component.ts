@@ -3,8 +3,8 @@ import { Firestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Pelicula, Pizza } from 'src/app/class/pizza';
-import { PeliculasService } from 'src/app/services/Pizza.service';
+import { Pizza } from 'src/app/class/pizza';
+import { PizzaService } from 'src/app/services/Pizza.service';
 import { EnumGeneroPeliculas } from 'src/app/utils/enum-genero-peliculas';
 
 
@@ -19,7 +19,7 @@ export class AltaPizzaComponent {
   urlFoto?: string;
   public obtengoFile?:string;
 
-constructor(public pizza: PeliculasService, private toastr: ToastrService, private router: Router,
+constructor(public pizza: PizzaService, private toastr: ToastrService, private router: Router,
   private firestore: Firestore,){}
 
 ngOnInit(): void {

@@ -20,40 +20,34 @@
     <div class="col-md-8 order-md-1">
       <h1 class="display-3 mt-3">Alta Pizza</h1>
       <p>Ingrese la información solicitada de la pizza que desea ver.</p>
-      <form [formGroup]="formAltaPelicula" >
+      <form [formGroup]="formAltaPizza" >
 
           <div class="mb-3">
             <label for="nombre">Nombre</label>
             <input type="text" class="form-control" id="nombre" placeholder="Nombre" value="" required formControlName="nombre">
-            <span *ngIf="formAltaPelicula.get('nombre')?.hasError('required') && formAltaPelicula.get('nombre')?.touched" class="text-danger form-floating">El nombre es requerido</span>
+            <span *ngIf="formAltaPizza.get('nombre')?.hasError('required') && formAltaPizza.get('nombre')?.touched" class="text-danger form-floating">El nombre es requerido</span>
 
           </div>
           <div class="mb-3">
-            <label for="nombre">Ingredientes</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre" value="" required formControlName="nombre">
-            <span *ngIf="formAltaPelicula.get('nombre')?.hasError('required') && formAltaPelicula.get('nombre')?.touched" class="text-danger form-floating">El nombre es requerido</span>
+            <label for="ingredientes">Ingredientes</label>
+            <input type="text" class="form-control" id="ingredientes" value="" required formControlName="ingredientes">
+            <span *ngIf="formAltaPizza.get('ingredientes')?.hasError('required') && formAltaPizza.get('ingredientes')?.touched" class="text-danger form-floating">El ingrediente es requerido</span>
 
           </div>
 
           <div class="mb-3">
-            <label for="cantidadPublico">Publico</label>
-            <input type="number" class="form-control" name="cantidadPublico" placeholder="0" formControlName="cantidadPublico">
-            <span *ngIf="formAltaPelicula.get('cantidadPublico')?.hasError('required') && formAltaPelicula.get('cantidadPublico')?.touched" class="text-danger form-floating">La cantidad de público es requerida</span>
+            <label for="peso">Peso</label>
+            <input type="number" class="form-control" name="peso" placeholder="0" formControlName="peso">
+            <span *ngIf="formAltaPizza.get('peso')?.hasError('required') && formAltaPizza.get('peso')?.touched" class="text-danger form-floating">el peso es requerido</span>
           </div>
 
         <div class="mb-3">
-          <label for="fechaEstreno">Estreno</label>
-          <input type="text" class="form-control" name="fechaEstreno" placeholder="12/11/1992" formControlName="fechaEstreno">
-          <span *ngIf="formAltaPelicula.get('fechaEstreno')?.hasError('required') && formAltaPelicula.get('fechaEstreno')?.touched" class="text-danger form-floating">La fecha de estreno es requerida</span>
+          <label for="precio">Precio</label>
+          <input type="text" class="form-control" name="precio" placeholder="12/11/1992" formControlName="precio">
+          <span *ngIf="formAltaPizza.get('precio')?.hasError('required') && formAltaPizza.get('precio')?.touched" class="text-danger form-floating">El precio es requerido</span>
         </div>
 
-        <div class="mb-3">
-          <label for="fotoPelicula">Foto Película<span class="text-muted"> (Opcional)</span></label>
-          <input placeholder="Inserte URL" type="text" class="form-control" formControlName="fotoPelicula">
-      </div>
-
-
-        <button class="btn btn-primary btn-lg btn-block" (click)="registrar()"  [disabled]="formAltaPelicula.invalid" type="submit">Guardar</button>
+        <button class="btn btn-primary btn-lg btn-block" (click)="registrar()"  [disabled]="formAltaPizza.invalid" type="submit">Guardar</button>
 
         <hr class="mb-4">
 
