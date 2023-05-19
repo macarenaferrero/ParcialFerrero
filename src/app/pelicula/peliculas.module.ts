@@ -15,8 +15,8 @@ import { DetallePeliculaComponent } from './detalle-pelicula/detalle-pelicula.co
 import { ListadoPeliculasComponent } from './listado-peliculas/listado-peliculas.component';
 import { ModificarPeliculaComponent } from './modificar-pelicula/modificar-pelicula.component';
 import { PeliculasRoutingModule } from './peliculas-routing.module';
-import { TablaActorComponent } from './tabla-actor/tabla-actor.component';
-import { TablaPeliculaComponent } from './tabla-pelicula/tabla-pelicula.component';
+import { TablaActorComponent } from './tabla-repartidor/tabla-repartidor.component';
+import { TablaPizzaComponent } from './tabla-pelicula/tabla-pizza.component';
 
 
 
@@ -25,7 +25,7 @@ import { TablaPeliculaComponent } from './tabla-pelicula/tabla-pelicula.componen
     BorrarPeliculaComponent,
     DetallePeliculaComponent,
     ModificarPeliculaComponent,
-    TablaPeliculaComponent,
+    TablaPizzaComponent,
     BusquedaComponent,
     ListadoPeliculasComponent,
     AltaPeliculaComponent,
@@ -47,7 +47,7 @@ import { TablaPeliculaComponent } from './tabla-pelicula/tabla-pelicula.componen
     BorrarPeliculaComponent,
     DetallePeliculaComponent,
     ModificarPeliculaComponent,
-    TablaPeliculaComponent,
+    TablaPizzaComponent,
     BusquedaComponent,
     ListadoPeliculasComponent,
     AltaPeliculaComponent,

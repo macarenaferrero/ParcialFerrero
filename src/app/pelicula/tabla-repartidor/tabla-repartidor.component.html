@@ -1,0 +1,9 @@
+<div *ngFor="let repartidor of repartidores">
+  <div class="mb-3 justify-content-between">
+    <div class="row">
+      <button class="btn btn-outline-secondary ml-3" style="width: 400px; position:relative;" (click)="emitirRepartidor(repartidor)">
+        <h6>{{repartidor.nombre}} {{repartidor.DNI}}</h6>
+      </button>
+  </div>
+  </div>
+</div>

@@ -1,27 +1,15 @@
 <router-outlet></router-outlet>
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Peliculas/actores</title>
 
-  </head>
-  <body>
+<header>
+  <h1>Pizzas 0800</h1>
+  </header>
+  <main>
+      <form id="index_form" class="form_class" method="post">
+          <div class="form_div">
+              <button class="submit_class" type="submit" form="index_form" routerLink="/login">Iniciar sesión</button>
+              <button class="submit_class" type="submit" form="index_form" routerLink="/registro">Registrarse</button>
+          </div>
+      </form>
+  </main>
 
-  <main role="main">
-  <app-nav></app-nav>
-
-  <div class="jumbotron">
-    <div class="container">
-      <h1 class="display-3">Bienvenidx</h1>
-      <p>Aquí podrá ver las peliculas más taquelleras de los últimos tiempos junto con sus actores principales.<br>
-        Todos los datos son reales y están actualizados al día de la fecha gracias a usuarios como usted.
-      </p>
-    </div>
-  </div>
-</main>
-
-<app-footer></app-footer>
-</body>
-</html>
+  <app-footer></app-footer>

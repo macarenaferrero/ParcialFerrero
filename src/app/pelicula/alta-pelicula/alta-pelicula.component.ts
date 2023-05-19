@@ -3,9 +3,8 @@ import { Firestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Actor } from 'src/app/class/actor';
-import { Pelicula } from 'src/app/class/pelicula';
-import { PeliculasService } from 'src/app/services/peliculas.service';
+import { Pelicula } from 'src/app/class/pizza';
+import { PeliculasService } from 'src/app/services/Pizza.service';
 import { EnumGeneroPeliculas } from 'src/app/utils/enum-genero-peliculas';
 
 
@@ -18,7 +17,6 @@ export class AltaPeliculaComponent {
   formAltaPelicula! : FormGroup;
   public opcionestipos = Object.values(EnumGeneroPeliculas);
   urlFoto?: string;
-  public actor?: Actor;
   public obtengoFile?:string;
 
 constructor(public pelicula: PeliculasService, private toastr: ToastrService, private router: Router,
@@ -44,7 +42,6 @@ registrar(){
     fechaEstreno: this.formAltaPelicula.get('fechaEstreno')?.value,
     tipo: this.formAltaPelicula.get('tipo')?.value,
     cantidadPublico: this.formAltaPelicula.get('cantidadPublico')?.value,
-    actor: this.formAltaPelicula.get('actor')?.value,
     fotoPelicula: this.formAltaPelicula.get('fotoPelicula')?.value
   }
   this.pelicula.crearPelicula(datoGrabar).then(() => {
@@ -55,10 +52,6 @@ registrar(){
   this.router.navigate(['/busqueda']);
 }
 
-mostrarActor(actorNombre:Actor){
-  this.actor= actorNombre;
-  this.formAltaPelicula.controls['actor'].setValue(this.actor);
-}
 
 
 }

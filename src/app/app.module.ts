@@ -8,17 +8,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { environment } from '../environments/environment';
-import { ActoresRoutingModule } from './actor/actores-routing.module';
+import { RepartidoresRoutingModule } from './actor/repartidores-routing.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PeliculasRoutingModule } from './pelicula/peliculas-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { RegistroComponent } from './auth/registro/registro.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AngularFireModule } from "@angular/fire/compat";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    RegistroComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,11 +34,13 @@ import { SharedModule } from './shared/shared.module';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
+    AngularFireModule.initializeApp(environment.firebase),
+
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     SharedModule,
     HttpClientModule,
-    ActoresRoutingModule,
+    RepartidoresRoutingModule,
     PeliculasRoutingModule,
   ],
   exports: [],

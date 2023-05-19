@@ -1,0 +1,33 @@
+<router-outlet></router-outlet>
+<!-- Muestro un atributo de mi objeto -->
+<header>
+<h1>{{title}}</h1>
+</header>
+<!-- Con los corchetes lo toma como valor, resuelven la variable  -->
+<!-- Los parentesis setean el manejador de eventos -->
+<main>
+    <div>
+        <form (ngSubmit)="registrar()" [formGroup]="nuevoRegistro" id="login_form" class="form_class" method="post">
+            <div class="form_div">
+                <label>Email:</label>
+                <input class="field_class" id="email" name="login_txt" type="text" formControlName="email" placeholder="Ingrese un usuario" autofocus [(ngModel)]='Usuario.email'>
+                <span *ngIf="nuevoRegistro.get('email')?.hasError('required') && nuevoRegistro.get('email')?.touched" class="text-danger form-floating">El email es requerido</span>
+                <span *ngIf="nuevoRegistro.get('email')?.hasError('email') && nuevoRegistro.get('email')?.touched" class="text-danger form-floating">El email es inválido</span>
+                <br>
+                <label>Password:</label>
+                <input id="pass" class="field_class" name="password_txt" type="password" formControlName="pass" placeholder="Ingrese password" [(ngModel)]='Usuario.pass'>
+                <span *ngIf="nuevoRegistro.get('pass')?.hasError('required') && nuevoRegistro.get('pass')?.touched" class="text-danger form-floating">La contraseña es requerida</span>
+                <br>
+                <label>Reingrese Password:</label>
+                <input id="pass2" class="field_class" name="password_txt" type="password"   formControlName="pass2" placeholder="Reingrese password" [(ngModel)]='Usuario.pass2'>
+                <span *ngIf="nuevoRegistro.get('pass2')?.hasError('required') && nuevoRegistro.get('pass2')?.touched"  class="text-danger form-floating">Debe repetir la contraseña</span>
+                <input id="isAdmin" type="checkbox" formControlName="isAdmin">
+                <button class="submit_class" type="submit" form="login_form">CREAR CUENTA</button>
+            </div>
+            <div class="info_div">
+                <a routerLink="">¡Volver al inicio!</a>
+            </div>
+        </form>
+    </div>
+</main>
+<app-footer></app-footer>

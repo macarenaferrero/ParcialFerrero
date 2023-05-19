@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Actor } from 'src/app/class/actor';
+import { Repartidor } from 'src/app/class/repartidor';
 import { Pais } from 'src/app/class/pais';
 import { PaisesService } from 'src/app/services/paises.service';
 
@@ -11,7 +11,7 @@ import { PaisesService } from 'src/app/services/paises.service';
 })
 export class TablaPaisesComponent implements OnInit {
   suscripcion! : Subscription;
-  actor?:Actor;
+  repartidor?:Repartidor;
   paises:Array<any>=[];
   paisSelesccionado?:Pais;
 

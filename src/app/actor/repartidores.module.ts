@@ -9,21 +9,21 @@ import { ToastrModule } from 'ngx-toastr';
 import { environment } from '../../environments/environment';
 import { PeliculasModule } from '../pelicula/peliculas.module';
 import { SharedModule } from '../shared/shared.module';
-import { ActoresRoutingModule } from './actores-routing.module';
-import { AltaActorComponent } from './alta-actor/alta-actor.component';
-import { DetalleActorComponent } from './detalle-actor/detalle-actor.component';
+import { RepartidoresRoutingModule } from './repartidores-routing.module';
+import { AltaRepartidorComponent } from './alta-repartidor/alta-repartidor.component';
+import { DetalleRepartidorComponent } from './detalle-repartidor/detalle-repartidor.component';
 import { DetalleNacionalidadComponent } from './detalle-nacionalidad/detalle-nacionalidad.component';
-import { ListadoActoresComponent } from './listado-actores/listado-actores.component';
+import { ListadoRepartidoresComponent } from './listado-repartidores/listado-repartidores.component';
 import { TablaPaisesComponent } from './tabla-paises/tabla-paises.component';
 
 
 @NgModule({
   declarations: [
-    AltaActorComponent,
+    AltaRepartidorComponent,
     TablaPaisesComponent,
-    ListadoActoresComponent,
+    ListadoRepartidoresComponent,
     DetalleNacionalidadComponent,
-    DetalleActorComponent
+    DetalleRepartidorComponent
   ],
   imports: [
     CommonModule,
@@ -33,16 +33,16 @@ import { TablaPaisesComponent } from './tabla-paises/tabla-paises.component';
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    ActoresRoutingModule,
+    RepartidoresRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     PeliculasModule
   ],
   exports: [
-    AltaActorComponent,
+    AltaRepartidorComponent,
     TablaPaisesComponent,
-    ListadoActoresComponent
+    ListadoRepartidoresComponent
 
   ],
 })
-export class ActoresModule { }
+export class RepartidoresModule { }

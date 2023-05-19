@@ -2,8 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Pelicula } from 'src/app/class/pelicula';
-import { PeliculasService } from 'src/app/services/peliculas.service';
+import { Pelicula } from 'src/app/class/pizza';
+import { PeliculasService } from 'src/app/services/Pizza.service';
 import { EnumGeneroPeliculas } from 'src/app/utils/enum-genero-peliculas';
 
 @Component({

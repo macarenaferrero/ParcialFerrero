@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
 import { CollectionReference, DocumentData, Firestore, collection, collectionData, doc, setDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { Actor } from '../class/actor';
+import { Repartidor } from '../class/repartidor';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ActoresService {
-  coleccionActores: CollectionReference<DocumentData> = collection(this.firestore, 'actores');
+export class RepartidorService {
+  coleccionActores: CollectionReference<DocumentData> = collection(this.firestore, 'repartidores');
 
 
   constructor(private firestore: Firestore) { }
 
-  crearActor(actorDato: Actor): Promise<void> {
+  crearRepartidor(repartidorDato: Repartidor): Promise<void> {
     return new Promise((resolve, reject) => {
-      const actores = doc(this.coleccionActores);
-      setDoc(actores, {
-        id: actores.id,
-        ...actorDato // Spread operator para agregar las propiedades de actorDato al objeto
+      const repartidores = doc(this.coleccionActores);
+      setDoc(repartidores, {
+        id: repartidores.id,
+      ...repartidorDato // Spread operator para agregar las propiedadesrepartidor al objeto
       })
         .then(() => {
           resolve(); // Se resuelve la promesa si la operación se completa correctamente
@@ -29,7 +29,7 @@ export class ActoresService {
     });
   }
 
-  getListadoActores(): Observable<any>{
+  getListadoRepartidores(): Observable<any>{
     const observable = collectionData(this.coleccionActores);
     return observable;
   }

@@ -2,25 +2,25 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
-import { Actor } from 'src/app/class/actor';
+import { Repartidor } from 'src/app/class/repartidor';
 import { Pais } from 'src/app/class/pais';
-import { Pelicula } from 'src/app/class/pelicula';
+import { Pelicula } from 'src/app/class/pizza';
 import { PaisesService } from 'src/app/services/paises.service';
-import { PeliculasService } from 'src/app/services/peliculas.service';
+import { PeliculasService } from 'src/app/services/Pizza.service';
 
 @Component({
-  selector: 'app-listado-actores',
-  templateUrl: './listado-actores.component.html',
-  styleUrls: ['./listado-actores.component.css']
+  selector: 'app-listado-repartidores',
+  templateUrl: './listado-repartidores.component.html',
+  styleUrls: ['./listado-repartidores.component.css']
 })
-export class ListadoActoresComponent {
+export class ListadoRepartidoresComponent {
   peliculas: Pelicula[] = [];
   suscripcion: Subscription = new Subscription();
   pelicula?:Pelicula;
   peliculasPorActor?:Pelicula[];
-  nacionalidadActor?:string;
-  paisActor:Pais = new Pais();
-  actorSeleccionado?: Actor;
+  nacionalidadRepartidor?:string;
+  paisRepartidor:Pais = new Pais();
+  repartidorSeleccionado?: Repartidor;
 
   constructor(public peliculaService: PeliculasService, private toastr: ToastrService,
      public paisService: PaisesService, private http: HttpClient) { }
@@ -40,23 +40,20 @@ export class ListadoActoresComponent {
     });
   }
 
-  emitirActor(actor: Actor) {
-    console.log(actor.nacionalidad);
-    this.actorSeleccionado = actor;
-    //const nombreActor:any = actor.nombre;
-    this.peliculasPorActor = this.peliculas?.filter((pelicula:Pelicula) => pelicula.actor?.nombre == actor.nombre);
-    console.log(this.peliculasPorActor);
-    this.nacionalidadActor = actor.nacionalidad as string;
-    this.buscarInformacionPais(this.nacionalidadActor);
+  emitirRepartidor(repartidor: Repartidor) {
+    console.log(repartidor.nacionalidad);
+    this.repartidorSeleccionado = repartidor;
+    this.nacionalidadRepartidor = repartidor.nacionalidad as string;
+    this.buscarInformacionPais(this.nacionalidadRepartidor);
   }
 
   buscarInformacionPais(nombrePais: string) {
     this.paisService.obtenerInformacionPais(nombrePais).subscribe(
         (data:any[]) => {
           console.log('Información del país:', data);
-          //this.paisActor = data;
-           this.paisActor.nombre = data[0]?.name.common;
-           this.paisActor.bandera = data[0]?.flags.png;
+          //this.paisRepartidor = data;
+           this.paisRepartidor.nombre = data[0]?.name.common;
+           this.paisRepartidor.bandera = data[0]?.flags.png;
         },
         (error) => {
           console.error('Error al obtener información del país:', error);

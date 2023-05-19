@@ -9,7 +9,7 @@ export class PaisesService {
   constructor(private http: HttpClient) { }
 
   traerPaises(){
-    const url = 'https://restcountries.com/v3.1/all';
+    const url = 'https://restcountries.com/v3.1/region/africa';
 
     return this.http.get(url);
   }

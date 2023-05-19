@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Pelicula } from 'src/app/class/pelicula';
-import { PeliculasService } from 'src/app/services/peliculas.service';
+import { Pelicula } from 'src/app/class/pizza';
+import { PeliculasService } from 'src/app/services/Pizza.service';
 
 @Component({
   selector: 'app-borrar-pelicula',
