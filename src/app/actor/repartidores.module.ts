@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { environment } from '../../environments/environment';
-import { PeliculasModule } from '../pelicula/peliculas.module';
+import { PeliculasModule } from '../pelicula/pizzas.module';
 import { SharedModule } from '../shared/shared.module';
 import { RepartidoresRoutingModule } from './repartidores-routing.module';
 import { AltaRepartidorComponent } from './alta-repartidor/alta-repartidor.component';

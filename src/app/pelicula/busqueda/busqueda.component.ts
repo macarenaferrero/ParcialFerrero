@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
-import { Pelicula } from 'src/app/class/pizza';
+import { Pelicula, Pizza } from 'src/app/class/pizza';
 import { PeliculasService } from 'src/app/services/Pizza.service';
 
 @Component({
@@ -12,13 +12,13 @@ import { PeliculasService } from 'src/app/services/Pizza.service';
 export class BusquedaComponent implements OnInit {
   peliculas: Pelicula[] = [];
   suscripcion: Subscription = new Subscription();
-  peliculaMostrar?: Pelicula;
-  hayPeliculaAmostrar: boolean = false;
+  pizzaAMostrar?: Pelicula;
+  hayPizzaAmostrar: boolean = false;
   mostrarBoton = true;
 
-  mostrarPelicula(pelicula: Pelicula) {
-    this.peliculaMostrar = pelicula;
-    this.hayPeliculaAmostrar = true;
+  mostrarPelicula(pizza: Pizza) {
+    this.pizzaAMostrar = pizza;
+    this.hayPizzaAmostrar = true;
   }
 
   borrarPelicula = (pelicula: Pelicula) => {
@@ -59,7 +59,7 @@ export class BusquedaComponent implements OnInit {
       });
     });
     this.hayPeliculaAmostrar = false;
-    this.peliculaMostrar = undefined;
+    this.pizzaAMostrar = undefined;
     this.toastr.success("Peliculas cargadas correctamente", "Cargado", { timeOut: 1000 });
   }
 

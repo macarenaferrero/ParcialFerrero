@@ -8,13 +8,13 @@ import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { environment } from '../../environments/environment';
 import { SharedModule } from '../shared/shared.module';
-import { AltaPeliculaComponent } from './alta-pelicula/alta-pelicula.component';
+import { AltaPeliculaComponent } from './alta-pizza/alta-pizza.component';
 import { BorrarPeliculaComponent } from './borrar-pelicula/borrar-pelicula.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { DetallePeliculaComponent } from './detalle-pelicula/detalle-pelicula.component';
 import { ListadoPeliculasComponent } from './listado-peliculas/listado-peliculas.component';
 import { ModificarPeliculaComponent } from './modificar-pelicula/modificar-pelicula.component';
-import { PeliculasRoutingModule } from './peliculas-routing.module';
+import { PeliculasRoutingModule } from './pizzas-routing.module';
 import { TablaActorComponent } from './tabla-repartidor/tabla-repartidor.component';
 import { TablaPizzaComponent } from './tabla-pelicula/tabla-pizza.component';
 
@@ -54,4 +54,4 @@ import { TablaPizzaComponent } from './tabla-pelicula/tabla-pizza.component';
     TablaActorComponent,
   ],
 })
-export class PeliculasModule { }
+export class PizzasModule { }
