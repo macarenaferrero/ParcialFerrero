@@ -1,0 +1,38 @@
+<h2>Modificar Pizza</h2>
+    <div>
+     <form [formGroup]="formModificarPizza">
+      <div class="mb-3">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Nombre" value="" readonly formControlName="nombre" [(ngModel)] = "pizzaAMostrar.nombre">
+
+      </div>
+      <div class="mb-3">
+        <label for="ingredientes">Ingredientes</label>
+        <input type="text" class="form-control" id="ingredientes" required formControlName="ingredientes" [(ngModel)] = "pizzaAMostrar.ingredientes">
+        <span *ngIf="formModificarPizza.get('ingredientes')?.hasError('required') && formModificarPizza.get('ingredientes')?.touched" class="text-danger form-floating">Los ingredientes son requerido</span>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="peso">Peso</label>
+        <input type="number" class="form-control" placeholder="grs" name="peso" min="500" max="1000" formControlName="peso" [(ngModel)] = "pizzaAMostrar.peso">
+        <span *ngIf="formModificarPizza.get('peso')?.hasError('required') && formModificarPizza.get('peso')?.touched" class="text-danger form-floating">el peso es requerido</span>
+        <span *ngIf="formModificarPizza.get('peso')?.hasError('max') || formModificarPizza.get('peso')?.hasError('min')" class="text-danger form-floating">El peso debe estar comprendido entre 500 y 1000 grs.</span>
+
+      </div>
+
+    <div class="mb-3">
+      <label for="precio">Precio</label>
+      <input type="text" class="form-control" name="precio"  formControlName="precio" [(ngModel)] = "pizzaAMostrar.precio">
+      <span *ngIf="formModificarPizza.get('precio')?.hasError('required') && formModificarPizza.get('precio')?.touched" class="text-danger form-floating">El precio es requerido</span>
+    </div>
+        <button class="btn btn-primary btn-lg btn-block"[disabled]="formModificarPizza.invalid"  (click)="updatePizza()">Guardar</button>
+
+      </form>
+    </div>
+
+
+
+
+
+

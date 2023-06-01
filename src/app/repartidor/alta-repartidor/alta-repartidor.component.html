@@ -1,0 +1,82 @@
+<router-outlet></router-outlet>
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Macarena Ferrero">
+    <title>Alta Repartidor</title>
+  </head>
+  <body >
+    <main role="main">
+    <div class="container" >
+
+
+      <div class="row mt-10 pt-5">
+        <div class="col-md-4 order-md-2 mb-4">
+      <app-nav></app-nav>
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted mt-5">Nacionalidad</span>
+      </h4>
+      <app-tabla-paises (eventoPaisSeleccionado)="mostrarPais($event)"></app-tabla-paises>
+
+    </div>
+    <div class="col-md-8 order-md-1">
+      <h1 class="display-3 mt-3">Alta Repartidor</h1>
+      <p>Ingrese la información solicitada del epartidor que desea añadir.</p>
+
+      <form [formGroup]="formAltaRepartidor" (ngSubmit)="enviarForm()" >
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre" value="" required formControlName="nombre">
+            <span *ngIf="formAltaRepartidor.get('nombre')?.hasError('required') && formAltaRepartidor.get('nombre')?.touched" class="text-danger form-floating">El nombre es requerido</span>
+
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="edad">Edad</label>
+            <input type="number" class="form-control" id="edad" placeholder="+18" value="" required formControlName="edad">
+            <span *ngIf="formAltaRepartidor.get('edad')?.hasError('required') && formAltaRepartidor.get('edad')?.touched" class="text-danger form-floating">La edad es requerida</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="DNI">DNI</label>
+          <input type="string" class="form-control" id="DNI" formControlName="DNI" required placeholder="Ingrese su DNI">
+          <span *ngIf="formAltaRepartidor.get('DNI')?.hasError('required') && formAltaRepartidor.get('DNI')?.touched" class="text-danger form-floating">El DNI es requerido</span>
+        </div>
+
+        <div class="mb-3">
+          <label for="capacidadTransporte">Cantidad de transporte</label>
+          <input type="text" class="form-control" id="capacidadTransporte" placeholder="¿Cuántas unidades de pizza puede transportar?"  formControlName="capacidadTransporte" required>
+          <span *ngIf="formAltaRepartidor.get('capacidadTransporte')?.hasError('required') && formAltaRepartidor.get('capacidadTransporte')?.touched" class="text-danger form-floating">La capacidad de transporte es requerida</span>
+        </div>
+
+        <div class="mb-3">
+          <label for="unidadPropia">Unidad Propia</label>
+          <select formControlName="unidadPropia" class="form-control">
+            <option value="SI">Si</option>
+            <option value="NO">No</option>
+          </select >
+          <!-- <input type="text" class="form-control" id="unidadPropia" placeholder="¿Cuenta con movilidad propia?" required formControlName="unidadPropia">
+          <span *ngIf="formAltaRepartidor.get('unidadPropia')?.hasError('required') && formAltaRepartidor.get('unidadPropia')?.touched" class="text-danger form-floating">La unidad propia es requerida</span> -->
+        </div>
+
+        <div class="mb-3">
+          <label for="nacionalidad">Nacionalidad</label>
+          <input class="form-control" id="nacionalidad" value="{{pais}}" readonly placeholder="Seleccione su nacionalidad de la lista" formControlName="nacionalidad">
+          <span *ngIf="formAltaRepartidor.get('nacionalidad')?.hasError('required')  && formAltaRepartidor.get('unidadPropia')?.touched" class="text-danger form-floating">La nacionalidad es requerida</span>
+
+        </div>
+        <button class="btn btn-primary btn-lg btn-block" (click)="registrar()" [disabled]="formAltaRepartidor.invalid" type="submit">Guardar</button>
+
+        <hr class="mb-4">
+      </form>
+    </div>
+  </div>
+</div>
+</main>
+<app-footer></app-footer>
+</body>
+</html>

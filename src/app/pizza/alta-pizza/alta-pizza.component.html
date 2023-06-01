@@ -1,0 +1,51 @@
+<router-outlet></router-outlet>
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Macarena Ferrero">
+    <title>Alta Pizza</title>
+  </head>
+  <body >
+    <main role="main">
+      <h2>Alta Pizza</h2>
+    <div>
+      <form [formGroup]="formAltaPizza" >
+
+          <div class="mb-3">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre" value="" required formControlName="nombre">
+            <span *ngIf="formAltaPizza.get('nombre')?.hasError('required') && formAltaPizza.get('nombre')?.touched" class="text-danger form-floating">El nombre es requerido</span>
+
+          </div>
+          <div class="mb-3">
+            <label for="ingredientes">Ingredientes</label>
+            <input type="text" class="form-control" id="ingredientes" placeholder="Indique los ingredientes de la unidad" required formControlName="ingredientes">
+            <span *ngIf="formAltaPizza.get('ingredientes')?.hasError('required') && formAltaPizza.get('ingredientes')?.touched" class="text-danger form-floating">El ingrediente es requerido</span>
+
+          </div>
+
+          <div class="mb-3">
+            <label for="peso">Peso</label>
+            <input type="number" class="form-control" placeholder="grs" name="peso" min="500" max="1000" formControlName="peso">
+            <span *ngIf="formAltaPizza.get('peso')?.hasError('required') && formAltaPizza.get('peso')?.touched" class="text-danger form-floating">el peso es requerido</span>
+            <span *ngIf="formAltaPizza.get('peso')?.hasError('max') || formAltaPizza.get('peso')?.hasError('min')" class="text-danger form-floating">El peso debe estar comprendido entre 500 y 1000 grs.</span>
+          </div>
+
+        <div class="mb-3">
+          <label for="precio">Precio</label>
+          <input type="text" class="form-control" name="precio" placeholder="$" formControlName="precio">
+          <span *ngIf="formAltaPizza.get('precio')?.hasError('required') && formAltaPizza.get('precio')?.touched" class="text-danger form-floating">El precio es requerido</span>
+        </div>
+
+        <button class="btn btn-primary btn-lg btn-block" (click)="registrar()"  [disabled]="formAltaPizza.invalid" type="submit">Guardar</button>
+
+        <hr class="mb-4">
+
+      </form>
+    </div>
+</main>
+</body>
+</html>

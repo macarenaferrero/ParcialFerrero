@@ -23,8 +23,8 @@ main {
   justify-content: center;
   height: 75vh;
   width: 100%;
-  background-color: rgb(200, 202, 202);
   background-size: cover;
+  background-image: url('src\assets\fondoPizza2.jpg');
 }
 .form_class {
   width: 500px;

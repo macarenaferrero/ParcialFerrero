@@ -26,7 +26,7 @@ main {
   justify-content: center;
   height: 75vh;
   width: 100%;
-  background-color: rgb(200, 202, 202);
+  background-image: url('src\assets\fondoPizza2.jpg');
   background-size: cover;
 }
 .form_class {

@@ -38,8 +38,14 @@ export class LoginComponent {
       const pass = this.loginUsuario.value.pass;
       this.afAuth.signInWithEmailAndPassword(email, pass)
       .then((user:any) => {
-        this.toastr.success("Ingreso satisfactorio","Sesión iniciada")
-        this.router.navigate(['/listadoRepartidores']);
+        console.log("Desde login: " + user.user.photoURL);
+        if(user.user.photoURL == "aceptado"){
+          this.toastr.success("Ingreso satisfactorio","Sesión iniciada",{timeOut: 1000})
+          this.router.navigate(['/listadoRepartidores']);
+        }else{
+          this.toastr.warning("Debe aceptar los términos y condiciones","Advertencia");
+          this.router.navigate(['/terminos&condiciones']);
+        }
       }).catch((error:any) => {
         this.toastr.error(this.codeError.firebaseError(error.code), "Error");
       })

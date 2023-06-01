@@ -21,8 +21,9 @@
                 <label>Reingrese Password:</label>
                 <input id="pass2" class="field_class" name="password_txt" type="password"   formControlName="pass2" placeholder="Reingrese password" [(ngModel)]='Usuario.pass2'>
                 <span *ngIf="nuevoRegistro.get('pass2')?.hasError('required') && nuevoRegistro.get('pass2')?.touched"  class="text-danger form-floating">Debe repetir la contraseña</span>
-                <input id="isAdmin" type="checkbox" formControlName="isAdmin">
-                <button class="submit_class" type="submit" form="login_form">CREAR CUENTA</button>
+                <label for="isAdmin">Administrador</label>
+                <input id="isAdmin" class="p-2" type="checkbox" (change)="handleCheckboxChange($event)" formControlName="isAdmin">
+                <button class="submit_class" type="submit"  form="login_form">CREAR CUENTA</button>
             </div>
             <div class="info_div">
                 <a routerLink="">¡Volver al inicio!</a>

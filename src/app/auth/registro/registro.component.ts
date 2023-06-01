@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/class/usuario';
 import { CodeErrorService } from 'src/app/services/code-error.service';
+import { User } from 'firebase/auth';
 
 @Component({
   selector: 'app-registro',
@@ -15,6 +16,7 @@ export class RegistroComponent {
   title = "Registro";
   Usuario:Usuario=new Usuario;
   nuevoRegistro:FormGroup;
+  isAdmin:boolean=false;
 
   constructor(private fb:FormBuilder, private toastr: ToastrService, private router: Router,
     private afAuth:AngularFireAuth, private codeError:CodeErrorService) {
@@ -22,7 +24,10 @@ export class RegistroComponent {
     email:["",[Validators.required, Validators.email]],
     pass:["",Validators.required],
     pass2:["",Validators.required],
+    isAdmin:[false]
     })
+
+
   }
   ngOnInit(): void {
   }
@@ -36,12 +41,38 @@ export class RegistroComponent {
 
     this.afAuth
     .createUserWithEmailAndPassword(this.Usuario.email, this.Usuario.pass)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      console.log(user);
+      if(user != null){
+      user.updateProfile({
+        displayName: this.isAdmin ? "Administrador" : "Empleado"
+      }).then(() => {
+        console.log(user.displayName);
+        return user;
+      })
+    }else {
+      throw new Error("No se pudo obtener el usuario");
+    }
+    })
+
     .then(() => {
-      this.toastr.success("Usuario creado con exito", 'Usuario exitoso');
-      this.router.navigate(['/listadoRepartidores']);
+      this.toastr.success("Usuario creado con exito", 'Usuario exitoso',{timeOut: 1000});
+      this.router.navigate(['/terminos&condiciones']);
     }).catch((error) => {
         this.toastr.error(this.codeError.firebaseError(error.code), "Error");
     });
+  }
+
+  handleCheckboxChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.checked) {
+      console.log("Es admin");
+      this.isAdmin = true;
+    } else {
+      console.log("No es admin");
+      this.isAdmin = false;
+    }
   }
 
 

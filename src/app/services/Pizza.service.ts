@@ -16,7 +16,7 @@ export class PizzaService {
       const pizzas = doc(this.colPizzas);
       setDoc(pizzas, {
         id: pizzas.id,
-        ...pizzaDato // Spread operator para agregar las propiedades de actorDato al objeto
+        ...pizzaDato // Spread operator para agregar las propiedades de pizzaDato al objeto
       })
         .then(() => {
           resolve(); // Se resuelve la promesa si la operación se completa correctamente

@@ -1,0 +1,19 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Ingredientes</th>
+      <th scope="col">Peso</th>
+      <th scope="col">Precio</th>
+    </tr>
+    <tr  *ngFor="let pizza of listadoPizzas">
+      <td>{{pizzaAMostrar!.nombre}}</td>
+      <td>{{pizzaAMostrar!.ingredientes}}</td>
+      <td>{{pizzaAMostrar!.peso}}</td>
+      <td>{{pizzaAMostrar!.precio}}</td>
+    </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+</table>

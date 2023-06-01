@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark navigate">
-  <a class="navbar-brand" routerLink="/bienvenido">Home</a>
+  <a class="navbar-brand" routerLink="/bienvenido">Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,17 +7,18 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/busqueda">Busqueda Películas<span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/busqueda">Busqueda Pedidos<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" routerLink="/listadoRepartidores" tabindex="-1">Listado Repartidores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"routerLink="/pedidos">Pedidos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/repartidor/altaRepartidor" tabindex="-1">Alta Repartidor</a>
+        <a class="nav-link" routerLink="/altaRepartidor" tabindex="-1">Alta Repartidor</a>
       </li>
     </ul>
   </div>
+  <a class="nav-link disabled">{{usuario?.email}}</a>
+      <div class="text-end">
+        <button type="button" class="btn btn-outline-primary me-2" (click)="logOut()">LogOut</button>
+      </div>
 </nav>

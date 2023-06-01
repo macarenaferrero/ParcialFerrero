@@ -1,0 +1,31 @@
+<router-outlet></router-outlet>
+<body>
+<header>
+  <h1>{{title}}</h1>
+</header>
+<main role="main">
+  <p class="terminos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi labore architecto eaque quod provident incidunt facere natus aut aperiam sunt nam, magni dolorum pariatur similique minima accusantium vel odit laborum?
+  Sunt delectus ex saepe asperiores voluptatum commodi ducimus perspiciatis atque beatae nam iure, assumenda explicabo sit, quasi neque labore perferendis dignissimos, iusto architecto adipisci. Cum, deserunt nostrum! Autem, voluptatum ratione!
+  Nisi facere commodi in odio, similique amet atque cum eaque impedit est minus quo! Beatae eius quisquam sed, nobis voluptate incidunt ducimus cumque saepe, nihil, delectus ad eligendi nesciunt? Fuga.
+  Itaque consequatur soluta quam modi facere numquam ullam dicta animi nam quasi quod est, ratione, enim veniam! Corporis tenetur nulla facere maxime possimus. Dicta libero adipisci itaque eos quaerat ipsam?
+  Quisquam delectus minus dolorum dicta atque cum, fugit repellendus molestiae. Consequuntur consectetur dicta in culpa nostrum ad quia autem magni?
+  Laborum reiciendis laudantium earum quisquam, itaque, alias perspiciatis impedit cum dolores odit a temporibus fuga magni unde doloribus delectus ipsum at quod debitis nisi enim quam animi nihil. Quo, doloribus!
+  Suscipit neque harum perspiciatis iste ab obcaecati? Odio beatae saepe magnam nostrum dolorum ratione repudiandae commodi ipsam reprehenderit velit et, asperiores modi, nihil explicabo porro illo. Eum est consequatur in!
+  Iusto molestias eveniet cumque accusamus blanditiis dolor vitae, error eaque aliquam voluptatum quaerat nemo impedit sed. Quo, at et dolorem pariatur, veniam labore, vero hic voluptatem eum ullam consequatur recusandae.
+  Vero eligendi dolore error cum, maxime dicta soluta ex! Sequi omnis architecto magnam explicabo facilis eaque nisi reprehenderit delectus ipsum excepturi ab dolorum nemo aut ex, molestias illo facere quod.
+  Molestias laborum sapiente aliquam quo magnam, eligendi optio tenetur repellendus ipsam esse labore voluptatibus saepe velit ex, maiores, similique ad nulla rerum inventore quidem. Quos repudiandae illo doloribus porro officia.
+  Nihil ea, minus iusto obcaecati qui reprehenderit optio possimus quidem dolorum facere molestiae quae blanditiis, rerum pariatur vitae enim atque minima expedita nisi tempore! Iure repudiandae veniam corrupti similique modi.
+  Odio maiores itaque nisi eius optio dolores molestias cum. Rerum, necessitatibus tempora consectetur esse eaque ratione magni, cum eum ex velit harum perferendis magnam eos explicabo ea libero voluptate sit.</p>
+  <form [formGroup]="FormTerminos" class="form_class">
+    <div class="form_div">
+    <input type="email" id="email" name="email" placeholder=" tumail@dominio.com" formControlName="email">
+    <span *ngIf="FormTerminos.get('email')?.hasError('required') && FormTerminos.get('email')?.touched" class="text-danger form-floating">El email es requerido</span>
+    <span *ngIf="FormTerminos.get('email')?.hasError('email') && FormTerminos.get('email')?.touched" class="text-danger form-floating">El email es inválido</span>
+    <label for="aceptTerms">Acepto los términos y condiciones</label>
+    <input type="checkbox" id="aceptTerms" name="aceptTerms" value="true" formControlName="aceptTerms">
+    <button type="submit" class="submit_class" (click)="aceptarTerminos()" >Enviar</button>
+  </div>
+  </form>
+</main>
+</body>
+<!-- <app-footer></app-footer> -->

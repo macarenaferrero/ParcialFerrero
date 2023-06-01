@@ -1,0 +1,43 @@
+<router-outlet></router-outlet>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tabla Pizzas</title>
+
+  </head>
+  <body>
+
+  <main role="main">
+  <app-nav></app-nav>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Listado Pizzas</h1>
+      <p>Selecciona la pizza que quieres ver, editar o borrar</p>
+
+      <app-tabla-pizza [mostrarBoton]="true" [listadoPizzas]="pizzas" (pizzaSeleccionada)="mostrarPizza($event)"></app-tabla-pizza>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <app-alta-pizza></app-alta-pizza>
+      </div>
+      <div class="col-md-5">
+        <app-modificar-pizza (onPizzaAModificar)="modificarPizza($event)" *ngIf="hayPizzaAMostrar" [pizzaAMostrar]="pizzaAMostrar"></app-modificar-pizza>
+      </div>
+      <div class="col-md-2">
+        <app-borrar-pizza (onPizzaABorrar)="borrarPizza($event)" [pizzaAMostrar]="pizzaAMostrar" *ngIf="hayPizzaAMostrar"></app-borrar-pizza>
+      </div>
+    </div>
+    <hr>
+  </div> <!-- /container -->
+
+</main>
+
+<app-footer></app-footer>
+</body>
+</html>

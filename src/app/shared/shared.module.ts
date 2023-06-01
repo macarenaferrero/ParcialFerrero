@@ -11,7 +11,7 @@ import { ErrorComponent } from './error/error/error.component';
   declarations: [
     NavComponent,
     FooterComponent,
-    ErrorComponent
+    ErrorComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +21,7 @@ import { ErrorComponent } from './error/error/error.component';
   exports:[
     NavComponent,
     FooterComponent,
-    ErrorComponent
+    ErrorComponent,
   ]
 })
 export class SharedModule { }
