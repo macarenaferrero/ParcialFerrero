@@ -30,7 +30,7 @@
           <div class="mb-3">
             <label for="peso">Peso</label>
             <input type="number" class="form-control" placeholder="grs" name="peso" min="500" max="1000" formControlName="peso">
-            <span *ngIf="formAltaPizza.get('peso')?.hasError('required') && formAltaPizza.get('peso')?.touched" class="text-danger form-floating">el peso es requerido</span>
+            <span *ngIf="formAltaPizza.get('peso')?.hasError('required') && formAltaPizza.get('peso')?.touched" class="text-danger form-floating">El peso es requerido</span>
             <span *ngIf="formAltaPizza.get('peso')?.hasError('max') || formAltaPizza.get('peso')?.hasError('min')" class="text-danger form-floating">El peso debe estar comprendido entre 500 y 1000 grs.</span>
           </div>
 
