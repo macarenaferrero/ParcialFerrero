@@ -41,7 +41,7 @@ export class LoginComponent {
         console.log("Desde login: " + user.user.photoURL);
         if(user.user.photoURL == "aceptado"){
           this.toastr.success("Ingreso satisfactorio","Sesión iniciada",{timeOut: 1000})
-          this.router.navigate(['/listadoRepartidores']);
+          this.router.navigate(['/repartidor/listadoRepartidores']);
         }else{
           this.toastr.warning("Debe aceptar los términos y condiciones","Advertencia");
           this.router.navigate(['/terminos&condiciones']);

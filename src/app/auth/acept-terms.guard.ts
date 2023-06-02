@@ -18,7 +18,7 @@ constructor(private toastr: ToastrService, private router: Router){}
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     if(component.aceptarTerminos()){
-      this.router.navigate(['/listadoRepartidores']);
+      this.router.navigate(['/repartidor/listadoRepartidores']);
       console.log("Se aceptaron las condiciones correctamente");
       return true;
     } else {

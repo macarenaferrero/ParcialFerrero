@@ -16,10 +16,7 @@ const rutas: Routes = [
   {path:"registro", component:RegistroComponent},
   {path:"terminos&condiciones", component:PrimerIngresoComponent},
   {path: "busqueda", loadChildren:()=>import('./pizza/pizzas.module').then(m => PizzasModule)},
-  {path: "listadoRepartidores", loadChildren:()=>import('./repartidor/repartidores.module').then(m => RepartidoresModule)},
-  //Preguntar cómo hacer para que reconozca la ruta desde el RepartidoresRoutingModule
-  {path: "altaRepartidor", component:AltaRepartidorComponent},
-  //
+  {path: "repartidor", loadChildren:()=>import('./repartidor/repartidores.module').then(m => RepartidoresModule)},
   {path: '', redirectTo: '/bienvenido', pathMatch: 'full'},
   {path:"**",component:ErrorComponent}
 ];

@@ -56,7 +56,7 @@ export class AltaRepartidorComponent implements OnInit {
     }).catch((error: string) => {
       this.toastr.error("Detalle: "+ error, "Error");
     });
-    this.router.navigate(['/listadoRepartidores']);
+    this.router.navigate(['/repartidor/listadoRepartidores']);
   }
 
 

@@ -20,7 +20,7 @@ export class AdministradoresGuard implements CanActivate {
       return true;
       }else{
         this.toast.error("No tiene permisos para acceder a esta sección", "Error");
-        this.router.navigate(['/listadoRepartidores']);
+        this.router.navigate(['/repartidor/listadoRepartidores']);
         return false;
       }
     }

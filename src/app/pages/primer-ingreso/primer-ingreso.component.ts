@@ -46,7 +46,7 @@ usuario?:any;
           console.log("Se aceptaron las condiciones correctamente");
           console.log(this.usuario.photoURL);
           this.toastr.success("Se aceptaron las condiciones correctamente", 'Terminos y condiciones',{timeOut: 1000});
-          this.router.navigate(['/listadoRepartidores']);
+          this.router.navigate(['/repartidor/listadoRepartidores']);
         })
          return true;
 
