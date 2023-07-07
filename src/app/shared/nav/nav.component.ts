@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavComponent {
   usuario:any;
+  admin=false;
 
   constructor(private afAuth:AngularFireAuth, private router:Router) { }
 
@@ -17,6 +18,9 @@ export class NavComponent {
     this.afAuth.currentUser.then(user=>{
       if(user){
         this.usuario = user;
+        if(this.usuario.displayName == "Administrador"){
+          this.admin = true;
+        }
       }else{
         this.router.navigate([""]);
       }

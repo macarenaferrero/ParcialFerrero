@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/busqueda">Busqueda Pedidos<span class="sr-only">(current)</span></a>
+        <a *ngIf="this.admin" class="nav-link" routerLink="/busqueda">Busqueda Pedidos<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" routerLink="/repartidor/listadoRepartidores" tabindex="-1">Listado Repartidores</a>

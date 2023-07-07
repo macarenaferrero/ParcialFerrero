@@ -49,7 +49,7 @@
 
         <div class="mb-3">
           <label for="capacidadTransporte">Cantidad de transporte</label>
-          <input type="text" class="form-control" id="capacidadTransporte" placeholder="¿Cuántas unidades de pizza puede transportar?"  formControlName="capacidadTransporte" required>
+          <input type="number" class="form-control" id="capacidadTransporte" placeholder="¿Cuántas unidades de pizza puede transportar?"  formControlName="capacidadTransporte" required>
           <span *ngIf="formAltaRepartidor.get('capacidadTransporte')?.hasError('required') && formAltaRepartidor.get('capacidadTransporte')?.touched" class="text-danger form-floating">La capacidad de transporte es requerida</span>
         </div>
 
